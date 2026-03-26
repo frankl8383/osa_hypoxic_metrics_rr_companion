@@ -6,6 +6,10 @@ This repository is a public transparency package for the manuscript:
 
 It is designed for a `GitHub + Zenodo` release path and is deliberately limited to reproducibility materials that can be shared without redistributing copyrighted full-text PDFs.
 
+Public repository URL:
+
+- `https://github.com/frankl8383/osa_hypoxic_metrics_rr_companion`
+
 ## Release Mode
 
 - Preferred: `GitHub` for visibility and version control, then archive a tagged release to `Zenodo` to mint a citable DOI.
