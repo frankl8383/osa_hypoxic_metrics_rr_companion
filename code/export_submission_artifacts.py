@@ -45,14 +45,14 @@ FIG_DPI = 300
 FIG_NATIVE_SCALE = 2
 FIG_EXPORT_SCALE = 1
 FONT_REGULAR_CANDIDATES = [
-    "/usr/share/fonts/opentype/urw-base35/NimbusRoman-Regular.otf",
-    "/usr/share/fonts/type1/urw-base35/NimbusRoman-Regular.t1",
-    "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+    "/usr/share/fonts/opentype/urw-base35/NimbusSans-Regular.otf",
+    "/usr/share/fonts/type1/urw-base35/NimbusSans-Regular.t1",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
 ]
 FONT_BOLD_CANDIDATES = [
-    "/usr/share/fonts/opentype/urw-base35/NimbusRoman-Bold.otf",
-    "/usr/share/fonts/type1/urw-base35/NimbusRoman-Bold.t1",
-    "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf",
+    "/usr/share/fonts/opentype/urw-base35/NimbusSans-Bold.otf",
+    "/usr/share/fonts/type1/urw-base35/NimbusSans-Bold.t1",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
 ]
 
 W_NS = "http://schemas.openxmlformats.org/wordprocessingml/2006/main"
@@ -247,7 +247,7 @@ class PSCanvas:
             self._emit("grestore")
 
     def text(self, x: float, y: float, text: str, *, size: int, bold: bool = False, color: str = "#111827", anchor: str = "left") -> None:
-        font = "NimbusRoman-Bold" if bold else "NimbusRoman-Regular"
+        font = "NimbusSans-Bold" if bold else "NimbusSans-Regular"
         safe = ps_escape(text)
         baseline = self.height - y - size * 0.82
         self._emit("gsave")
