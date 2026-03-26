@@ -1,0 +1,30 @@
+{
+  "title": "Transparency and reproducibility package for: Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts",
+  "upload_type": "dataset",
+  "license": "cc-by-4.0",
+  "description": "Repository-ready transparency package containing the final executed search appendix, screening and full-text review logs, extraction and synthesis tables, risk-of-bias source file, final export script, and final upload-ready figure files supporting the OSA beyond-AHI hypoxic-metrics systematic review and meta-analysis. Replace this description with the final DOI-bearing text if a GitHub release is archived to Zenodo.",
+  "creators": [
+    {
+      "name": "Liu, Zihao",
+      "affiliation": "Department of Respiratory and Critical Care Medicine, Shanghai Pulmonary Hospital, School of Medicine, Tongji University, Shanghai, China"
+    },
+    {
+      "name": "Tan, Zhili",
+      "affiliation": "Department of Respiratory and Critical Care Medicine, Shanghai Pulmonary Hospital, School of Medicine, Tongji University, Shanghai, China"
+    },
+    {
+      "name": "Li, Bing",
+      "affiliation": "Department of Respiratory and Critical Care Medicine, Shanghai Pulmonary Hospital, School of Medicine, Tongji University, Shanghai, China"
+    }
+  ],
+  "keywords": [
+    "obstructive sleep apnea",
+    "hypoxic burden",
+    "T90",
+    "oxygen desaturation index",
+    "cardiovascular mortality",
+    "systematic review",
+    "meta-analysis"
+  ],
+  "notes": "Draft metadata file prepared locally on 2026-03-26. The repository package uses CC BY 4.0 unless the authors deliberately replace it before public release. Confirm final DOI target before release."
+}

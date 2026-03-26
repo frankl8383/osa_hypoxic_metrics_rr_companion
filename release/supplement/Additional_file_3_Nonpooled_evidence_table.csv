@@ -1,0 +1,47 @@
+Study,Metric family,Outcome,Effect estimate,Reason retained outside primary pooled analyses,Main note
+Labarca 2023 [9],HB,CVD mortality,HR 1.22 (1.10-1.35),Only one directly comparable cohort family,"The adjusted CVD-mortality estimate was available, but the article did not report a corresponding event count."
+Mazzotti 2025 [30],HB,CVD mortality,HR 1.22 (0.95-1.56),Single-publication cohort family or overlap-sensitive row,"HB effect adjusted for symptom subtypes and clinical covariates, but not for AHI/T90/nadir."
+Mazzotti 2025 [30],HB,CVD mortality,HR 1.63 (1.13-2.35),Alternate model from the same cohort family,Incremental-risk result from an alternate model within the same cohort family.
+Peker 2025 [32],HB,MACCE,HR 1.87 (1.17-2.98),Specialized secondary-prevention cohort,Specialized secondary-prevention cohort retained outside the primary pooled analyses.
+Mazzotti 2025 [30],HB,MACE,HR 0.98 (0.87-1.11),Single-publication cohort family or overlap-sensitive row,Null HB-MACE result in the free-of-baseline-CVD SHHS cohort.
+Mazzotti 2025 [30],HB,MACE,HR 1.05 (0.89-1.23),Alternate model from the same cohort family,Incremental model remained null for MACE after adjustment for other OSA severity measures.
+Trzepizur 2022 [16],HB,MACE,HR 1.21 (1.07-1.38),Single-publication cohort family or overlap-sensitive row,Primary clinical-cohort HB anchor with CPAP-adjusted MACE model.
+Labarca 2023 [9],HB,incident CVD,HR 1.13 (1.02-1.26),Only one directly comparable cohort family,Single community-cohort HB row without a second directly comparable cohort family.
+Labarca 2023 [9],HB,incident hard CVD,HR 1.45 (1.14-1.84),Only one directly comparable cohort family,Single community-cohort HB row without a second directly comparable cohort family.
+Chung 2022 [26],ODI,30-day postoperative cardiovascular events,HR 1.63 (1.05-2.53),Specialized perioperative cohort,Protocol-adjacent ODI signal in a perioperative unrecognized-OSA setting.
+Baumert 2020 [11],ODI,CVD mortality,HR 1.16 (0.97-1.38),Only one directly comparable cohort family,Adjusted ODI was not independently associated with CVD mortality in this MrOS analysis.
+Hui 2024 [28],ODI,CVD mortality,HR 1.04 (0.70-1.56),Comparator metric from the same cohort family,Same SHHS mortality dataset family as other HB papers.
+Xu 2025 [31],ODI,MACCE,HR 1.81 (1.04-3.16),Specialized ACS cohort,Post hoc ACS subgroup analysis.
+Azakli 2024 [15],ODI,all-cause mortality,HR 1.01 (1.00-1.01),Single adjusted cohort on the native scale,Single clinical-cohort ODI mortality estimate with a directly extractable multivariable effect size.
+Johansson 2011 [20],ODI,all-cause mortality,HR 3.00 (1.10-8.60),Restricted elderly cardiovascular subgroup,The overall elderly community cohort did not show a mortality association.
+Vichova 2025 [29],ODI,all-cause mortality,HR 1.58 (1.10-2.25),Restricted special-population subgroup,Nested treated-DM subgroup.
+Mooe 2001 [19],ODI,cerebrovascular events,HR 2.62 (1.26-5.46),Specialized CAD cohort,CAD cohort with hard cerebrovascular outcomes.
+Ohmura 2014 [21],ODI,composite readmission or mortality,HR 2.93 (1.36-6.31),Specialized acute-heart-failure cohort,Specialized acute heart-failure cohort.
+Hui 2024 [28],ODI,incident CVD,HR 1.07 (0.83-1.39),Comparator metric from the same cohort family,Useful for ODI head-to-head comparison in SHHS.
+Onuki 2023 [27],ODI,incident CVD,HR 1.49 (1.09-2.03),Community physiology cohort without clinic-defined OSA entry criteria,Community-based nocturnal intermittent hypoxia paper with extractable adjusted CVD-composite HR.
+Mooe 1996 [18],ODI,post-CABG atrial fibrillation,HR 2.80 (1.20-6.80),Specialized post-CABG cohort,Abstract-only specialized comparator row without enough published model detail for pooling.
+Baumert 2020 [11],T90,CVD mortality,HR 1.59 (1.14-2.22),Not enough independent cohorts on a shared threshold,"Categorical T90 row uses the paper's highest-quartile threshold rather than a universal clinical cutoff, so it should be pooled only with clearly comparable categorical T90 studies."
+Baumert 2020 [11],T90,CVD mortality,HR 1.16 (1.05-1.28),Only one directly comparable cohort family,Directly fills the previously unreported T90 and cardiovascular mortality gap with an AHI-adjusted MrOS row.
+Trzepizur 2022 [16],T90,MACE,HR 1.34 (1.16-1.55),Single-publication cohort family or overlap-sensitive row,T90 remained significant in the fully adjusted clinical-cohort model and can serve as a main T90 anchor alongside the HB row from the same cohort.
+Labarca 2019 [24],T90,all-cause mortality,HR 2.70 (1.37-5.22),Unadjusted threshold analysis,Unadjusted threshold analysis only.
+Oldenburg 2016 [22],T90,all-cause mortality,HR 1.16 (1.09-1.24),Heart-failure cohort with mixed sleep-disordered breathing,Adjusted T90 mortality estimate from a specialized heart-failure cohort.
+Vichova 2025 [29],T90,all-cause mortality,HR 1.86 (1.27-2.72),Restricted special-population subgroup,Diabetes subgroup only.
+Suzuki 2022 [25],T90,atrial tachyarrhythmia recurrence,HR 8.53 (1.87-38.81),Post-ablation AF cohort,Important AF-recurrence signal but highly specialized to post-ablation patients and restricted to the non-CPAP subgroup.
+Briancon-Marjollet 2021 [12],T90,incident atrial fibrillation,HR 1.01 (1.00-1.02),Single adjusted cohort on the native scale,T90 was the only nocturnal hypoxemia index that remained independently associated with incident AF after multivariable adjustment.
+Briancon-Marjollet 2021 [12],T90,incident atrial fibrillation,HR 2.20 (1.23-3.91),Not enough independent cohorts on a shared threshold,"The highest T90 quartile was associated with incident AF, while ODI, nadir oxygen saturation, and hypoxic burden category analyses were not independently significant after adjustment."
+Heinzinger 2023 [13],T90,incident atrial fibrillation,HR 1.06 (1.04-1.08),Only one directly comparable cohort family,Main hypoxia row for AF pooling from a large clinical cohort.
+Kendzerska 2018 [14],T90,incident hospitalized atrial fibrillation,HR 1.77 (1.15-2.74),Not enough independent cohorts on a shared threshold,Clinical suspected-OSA cohort.
+Xu 2025 [31],nadir SpO2,MACCE,HR 0.03 (0.00-0.77),Specialized ACS cohort,Inverse nadir-SaO2 association is directionally coherent with worse hypoxaemia burden conferring higher risk.
+Heinzinger 2023 [13],nadir SpO2,incident atrial fibrillation,HR 1.09 (1.03-1.15),Only one directly comparable cohort family,In-scope nadir-SpO2 AF row from the same cohort.
+Rivera-Lopez 2018 [23],nocturnal hypoxemia,composite mortality or HF readmission,HR 8.37 (1.19-68.40),Specialized decompensated-HF cohort,Very small specialized heart-failure cohort.
+Hui 2024 [28],rHB,CVD mortality,HR 1.63 (1.05-2.53),Comparator metric from the same cohort family,Same SHHS cohort as prior mortality studies.
+Hui 2024 [28],rHB,incident CVD,HR 1.24 (0.95-1.62),Comparator metric from the same cohort family,"Unique SHHS non-fatal CVD composite for reconstructed HB, but still best treated as metric-comparison sensitivity."
+Xu 2023 [33],T90,MACE,HR 1.41 (1.10-1.81),Spline-derived contrast without a shared poolable scale,Strong T90/TST90 hard-composite signal from a modern Hong Kong sleep-clinic cohort.
+Labarca 2021 [34],T90,CVD mortality,HR 1.02 (1.01-1.04),Single adjusted cohort on the native scale,Adjusted T90 cardiovascular-mortality signal in a SantOSA OSA-diabetes cohort.
+Redline 2010 [38],T90,incident ischemic stroke,HR 1.46 (0.71-2.98),Not enough independent cohorts on a shared threshold,Community-based male SHHS stroke row with a wide confidence interval.
+Wang 2025 [35],HB,incident atrial fibrillation,OR 1.70 (1.04-2.81),Overlap-prone SHHS reuse with OR-based model,Overlap-prone SHHS reuse with OR-based AF modeling.
+Bailly 2026 [36],SASHB,30-day postoperative cardiovascular events,OR 2.79 (1.42-5.49),Specialized perioperative cohort,Large specialized perioperative cohort that thickens the translational SASHB evidence layer.
+Xie 2016 [37],nadir SpO2,MACE,HR 6.05 (1.79-20.46),Specialized recent-post-MI cohort,Recent-post-MI cohort with a strong nadir oxygen saturation signal.
+Xie 2016 [37],T90,MACE,HR 1.25 (0.50-3.16),Specialized recent-post-MI cohort,Null specialized post-MI T90 threshold row that is useful as a comparator signal but not a general OSA prognostic anchor.
+Henríquez-Beltrán 2024 [39],T90,all-cause mortality,HR 1.18 (1.10-1.26),Single publication with two cohort-specific estimates retained outside the pooled core,Dual-cohort T90 all-cause-mortality paper rescued during the final strict-review pass.
+Henríquez-Beltrán 2024 [39],T90,all-cause mortality,HR 1.34 (1.04-1.71),Single publication with two cohort-specific estimates retained outside the pooled core,More protocol-concordant clinical-cohort companion row from the same dual-cohort T90 all-cause-mortality paper.

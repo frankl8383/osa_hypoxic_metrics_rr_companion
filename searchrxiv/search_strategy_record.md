@@ -1,0 +1,120 @@
+# Executed search strategies for:
+# Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis
+
+## Suggested title
+
+Executed search strategies for beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts
+
+## Suggested authors
+
+- Zihao Liu
+- Zhili Tan
+- Bing Li
+
+## Suggested abstract
+
+We deposited the executed search strategies supporting a systematic review and meta-analysis of beyond-AHI hypoxic metrics and hard cardiovascular or mortality outcomes in adult OSA-related cohorts. The primary three-database search covered PubMed, Web of Science Core Collection, and Embase, with protocol-concordant supplementary metric-specific PubMed side-searches used only as a recall audit after closure of the main PubMed corpus. Prespecified exposure families were hypoxic burden, sleep-apnea-specific hypoxic burden, T90/TST90, oxygen desaturation index, and minimum or nadir oxygen saturation. Prespecified outcomes were all-cause mortality, cardiovascular mortality, incident or adjudicated cardiovascular events, incident heart failure, incident atrial fibrillation, and incident stroke. This record preserves the exact executed database logic, filters, and search dates used for the submitted review package.
+
+## Suggested keywords
+
+- obstructive sleep apnea
+- hypoxic burden
+- T90
+- oxygen desaturation index
+- cardiovascular mortality
+- systematic review
+- meta-analysis
+
+## Review context
+
+- Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis`
+- Reporting framework: `PRISMA 2020`
+- Registration: protocol outline prepared in a PROSPERO-compatible format but not formally registered
+- Protocol freeze date: `2026-03-23`
+- Search record finalization date: `2026-03-26`
+
+## Databases and query execution notes
+
+- planned primary databases: `PubMed`, `Web of Science Core Collection`, `Embase`
+- supplementary recall audit: metric-specific `PubMed` side-searches executed after closure of the main PubMed corpus
+- side-search rule: recall audit only; not treated as an independent fourth database stream
+
+## Executed PubMed main query
+
+```text
+("Sleep Apnea, Obstructive"[Mesh] OR "Sleep Apnea Syndromes"[Mesh] OR "obstructive sleep apnea"[tiab] OR "obstructive sleep apnoea"[tiab] OR "sleep-disordered breathing"[tiab] OR OSA[tiab])
+AND
+("hypoxic burden"[tiab] OR "oxygen desaturation index"[tiab] OR ODI[tiab] OR T90[tiab] OR "sleep hypoxemia"[tiab] OR "sleep hypoxaemia"[tiab] OR "nocturnal hypoxemia"[tiab] OR "nocturnal hypoxaemia"[tiab] OR "minimum oxygen saturation"[tiab] OR "nadir oxygen saturation"[tiab] OR "lowest oxygen saturation"[tiab] OR "nadir SpO2"[tiab])
+AND
+(mortality[tiab] OR "cardiovascular mortality"[tiab] OR "all-cause mortality"[tiab] OR "cardiovascular event*"[tiab] OR MACE[tiab] OR "major adverse cardiovascular"[tiab] OR "heart failure"[tiab] OR "atrial fibrillation"[tiab] OR stroke[tiab] OR prognosis[tiab] OR incident[tiab])
+NOT
+(child*[tiab] OR pediatric*[tiab] OR paediatric*[tiab])
+```
+
+## Executed supplementary PubMed side-search queries
+
+```text
+HB:
+("Sleep Apnea, Obstructive"[Mesh] OR "obstructive sleep apnea"[tiab] OR "obstructive sleep apnoea"[tiab] OR "sleep-disordered breathing"[tiab])
+AND ("hypoxic burden"[tiab])
+AND (mortality[tiab] OR "cardiovascular mortality"[tiab] OR "heart failure"[tiab] OR "atrial fibrillation"[tiab] OR stroke[tiab] OR cardiovascular[tiab])
+
+T90 / sleep hypoxemia:
+("Sleep Apnea, Obstructive"[Mesh] OR "obstructive sleep apnea"[tiab] OR "obstructive sleep apnoea"[tiab] OR "sleep-disordered breathing"[tiab])
+AND (T90[tiab] OR "sleep hypoxemia"[tiab] OR "sleep hypoxaemia"[tiab] OR "time below 90"[tiab] OR "minimum oxygen saturation below 90"[tiab])
+AND (mortality[tiab] OR "heart failure"[tiab] OR "atrial fibrillation"[tiab] OR stroke[tiab] OR cardiovascular[tiab])
+
+ODI:
+("Sleep Apnea, Obstructive"[Mesh] OR "obstructive sleep apnea"[tiab] OR "obstructive sleep apnoea"[tiab] OR "sleep-disordered breathing"[tiab])
+AND ("oxygen desaturation index"[tiab] OR ODI[tiab])
+AND (mortality[tiab] OR "heart failure"[tiab] OR "atrial fibrillation"[tiab] OR stroke[tiab] OR cardiovascular[tiab])
+
+Nadir / minimum oxygen saturation:
+("Sleep Apnea, Obstructive"[Mesh] OR "obstructive sleep apnea"[tiab] OR "obstructive sleep apnoea"[tiab] OR "sleep-disordered breathing"[tiab])
+AND ("minimum oxygen saturation"[tiab] OR "nadir oxygen saturation"[tiab] OR "lowest oxygen saturation"[tiab] OR "nadir SpO2"[tiab])
+AND (mortality[tiab] OR "heart failure"[tiab] OR "atrial fibrillation"[tiab] OR stroke[tiab] OR cardiovascular[tiab])
+```
+
+## Executed Web of Science Core Collection query
+
+```text
+TS=((("obstructive sleep apnea" OR "obstructive sleep apnoea" OR "sleep-disordered breathing" OR "sleep disordered breathing" OR OSA OR OSAHS) AND ("hypoxic burden" OR "sleep apnea-specific hypoxic burden" OR "sleep apnoea-specific hypoxic burden" OR "oxygen desaturation index" OR ODI OR T90 OR "sleep hypoxemia" OR "sleep hypoxaemia" OR "nocturnal hypoxemia" OR "nocturnal hypoxaemia" OR "minimum oxygen saturation" OR "nadir oxygen saturation" OR "lowest oxygen saturation" OR "nadir SpO2" OR "mean oxygen saturation") AND (mortality OR "all-cause mortality" OR "cardiovascular mortality" OR "cardiovascular event*" OR MACE OR MACCE OR "major adverse cardiovascular" OR "heart failure" OR "atrial fibrillation" OR stroke OR prognosis OR incident)) NOT (child* OR pediatric* OR paediatric*))
+```
+
+Post-retrieval filters:
+
+- database: `Web of Science Core Collection`
+- document types: `Article`, `Early Access`
+
+## Executed Embase query logic
+
+```text
+#1 ('obstructive sleep apnea'/exp OR 'obstructive sleep apnea':ti,ab,kw OR 'obstructive sleep apnoea':ti,ab,kw OR 'sleep disordered breathing':ti,ab,kw OR 'sleep-disordered breathing':ti,ab,kw OR osa:ti,ab,kw OR osahs:ti,ab,kw)
+
+#2 ('hypoxic burden'/exp OR 'hypoxic burden':ti,ab,kw OR 'sleep apnea specific hypoxic burden':ti,ab,kw OR 'sleep apnoea specific hypoxic burden':ti,ab,kw OR 'oxygen desaturation index'/exp OR 'oxygen desaturation index':ti,ab,kw OR odi:ti,ab,kw OR t90:ti,ab,kw OR 'sleep hypoxemia':ti,ab,kw OR 'sleep hypoxaemia':ti,ab,kw OR 'nocturnal hypoxemia':ti,ab,kw OR 'nocturnal hypoxaemia':ti,ab,kw OR 'minimum oxygen saturation':ti,ab,kw OR 'nadir oxygen saturation':ti,ab,kw OR 'lowest oxygen saturation':ti,ab,kw OR 'nadir spo2':ti,ab,kw OR 'mean oxygen saturation':ti,ab,kw)
+
+#3 ('mortality'/exp OR mortality:ti,ab,kw OR 'all cause mortality':ti,ab,kw OR 'cardiovascular mortality':ti,ab,kw OR 'cardiovascular event*':ti,ab,kw OR mace:ti,ab,kw OR macce:ti,ab,kw OR 'major adverse cardiovascular':ti,ab,kw OR 'heart failure'/exp OR 'heart failure':ti,ab,kw OR 'atrial fibrillation'/exp OR 'atrial fibrillation':ti,ab,kw OR stroke/exp OR stroke:ti,ab,kw OR prognosis/exp OR prognosis:ti,ab,kw OR incident:ti,ab,kw)
+
+#4 (child/exp OR adolescent/exp OR pediatric*:ti,ab,kw OR paediatric*:ti,ab,kw OR child*:ti,ab,kw)
+
+Final logic: #1 AND #2 AND #3 NOT #4
+```
+
+Post-retrieval filters:
+
+- publication types: `Article`, `Article in Press`
+- source limit: `[embase]/lim`
+
+## Final search-yield summary
+
+- database records identified before deduplication: `1636`
+- duplicate records removed before screening: `777`
+- deduplicated screening corpus across the three planned databases: `859`
+- reports sought for retrieval after title/abstract screening: `62`
+- full-text reports assessed for eligibility: `62`
+- historical executed quantitative evidence set: `24` unique articles
+- updated final submission dataset after post-freeze supplement and citation-chasing pass: `31` unique articles and `54` cohort-level rows
+
+## Recommended linkage
+
+When this search record is deposited at `searchRxiv`, cross-link it to the public companion repository and, once minted, the Zenodo DOI for the full transparency package.

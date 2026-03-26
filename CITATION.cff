@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this repository, please cite the manuscript and the repository DOI once minted."
+title: "Transparency and reproducibility package for: Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts"
+version: "v1"
+date-released: 2026-03-26
+authors:
+  - family-names: Liu
+    given-names: Zihao
+  - family-names: Tan
+    given-names: Zhili
+  - family-names: Li
+    given-names: Bing
+keywords:
+  - obstructive sleep apnea
+  - hypoxic burden
+  - T90
+  - oxygen desaturation index
+  - cardiovascular mortality
+  - systematic review
+  - meta-analysis
+abstract: >-
+  Repository-ready transparency package containing the executed search appendix,
+  screening and full-text review logs, extraction and synthesis tables, final
+  risk-of-bias source file, final export script, and final upload-ready figure
+  files supporting the OSA beyond-AHI hypoxic-metrics systematic review and
+  meta-analysis.

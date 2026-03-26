@@ -1,0 +1,32 @@
+Study,Anchor,Part.,Attr.,Factor,Outcome,Confound.,Analysis,Overall
+Mooe 1996 [18],ODI -> postoperative atrial fibrillation,M,M,M,M,H,H,H
+Mooe 2001 [19],ODI -> cerebrovascular events,M,M,M,M,M,M,M
+Johansson 2011 [20],ODI -> all-cause mortality,M,M,M,L,M,M,M
+Ohmura 2014 [21],ODI -> death or heart-failure readmission,H,M,M,M,H,M,H
+Oldenburg 2016 [22],T90 -> all-cause mortality,M,L,M,L,M,L,M
+Rivera-Lopez 2018 [23],nocturnal hypoxemia -> mortality or heart-failure readmission,H,M,M,M,H,M,H
+Kendzerska 2018 [14],T90 -> incident AF hospitalization,M,L,M,M,M,M,M
+Azarbarzin 2019 [7],HB -> CVD mortality,L,L,L,L,L,L,L
+Baumert 2020 [11],T90; ODI -> CVD mortality,L,L,L,L,M,L,M
+Labarca 2019 [24],T90; nadir SpO2 -> all-cause mortality,H,M,M,L,H,H,H
+Azarbarzin 2020 [8],SASHB -> incident HF,L,L,L,L,L,M,L
+Briancon-Marjollet 2021 [12],T90 -> incident AF,M,L,M,M,M,M,M
+Trzepizur 2022 [16],HB; T90 -> MACE; all-cause mortality,M,L,M,M,M,M,M
+Suzuki 2022 [25],T90 -> AF recurrence,H,M,M,M,H,M,H
+Chung 2022 [26],ODI -> 30-day postoperative CV events,M,L,M,M,M,M,M
+Onuki 2023 [27],ODI; nocturnal intermittent hypoxia -> incident composite cardiovascular disease,M,M,M,L,M,M,M
+Labarca 2023 [9],HB -> incident CVD; all-cause mortality; CVD mortality,L,L,L,L,M,M,M
+Heinzinger 2023 [13],T90; nadir SpO2 -> incident AF,M,L,M,M,M,M,M
+Hui 2024 [28],ODI; rHB -> CVD mortality; incident CVD,L,L,M,L,M,M,M
+Azakli 2024 [15],ODI -> all-cause mortality,M,M,L,M,M,M,M
+Vichova 2025 [29],T90; ODI -> all-cause mortality,M,L,M,L,M,H,H
+Mazzotti 2025 [30],HB -> CVD mortality; MACE,M,L,L,L,M,M,M
+Xu 2025 [31],ODI; nadir SpO2 -> MACCE,M,L,M,M,M,M,M
+Peker 2025 [32],HB -> MACCE,M,M,L,M,M,M,M
+Xu 2023 [33],T90 -> MACE,M,L,M,M,M,M,M
+Labarca 2021 [34],T90 -> CVD mortality,M,M,M,M,M,M,M
+Redline 2010 [38],T90 -> incident stroke,M,L,M,M,M,M,M
+Wang 2025 [35],HB; SBII -> incident AF,M,M,M,M,M,M,M
+Bailly 2026 [36],SASHB -> 30-day postoperative CV events,M,L,M,M,M,M,M
+Xie 2016 [37],nadir SpO2; T90 -> MACE,H,M,M,M,H,M,H
+Henríquez-Beltrán 2024 [39],T90 -> all-cause mortality,M,M,M,M,M,M,M
