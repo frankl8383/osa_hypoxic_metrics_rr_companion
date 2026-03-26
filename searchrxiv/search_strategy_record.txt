@@ -87,3 +87,7 @@ Final search-yield summary:
 - full-text reports assessed for eligibility: 62
 - historical executed quantitative evidence set: 24 unique articles
 - updated final submission dataset after post-freeze supplement and citation-chasing pass: 31 unique articles and 54 cohort-level rows
+
+Recommended linkage:
+GitHub repository: https://github.com/frankl8383/osa_hypoxic_metrics_rr_companion
+Zenodo DOI: https://doi.org/10.5281/zenodo.19228372

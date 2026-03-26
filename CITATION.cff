@@ -1,8 +1,12 @@
 cff-version: 1.2.0
-message: "If you use this repository, please cite the manuscript and the repository DOI once minted."
+message: "If you use this repository, please cite the manuscript and the Zenodo-archived repository DOI."
 title: "Transparency and reproducibility package for: Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts"
 version: "v1"
 date-released: 2026-03-26
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.19228372
+repository-code: "https://github.com/frankl8383/osa_hypoxic_metrics_rr_companion"
 authors:
   - family-names: Liu
     given-names: Zihao

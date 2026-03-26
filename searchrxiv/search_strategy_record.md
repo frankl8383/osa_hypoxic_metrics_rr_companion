@@ -117,4 +117,4 @@ Post-retrieval filters:
 
 ## Recommended linkage
 
-When this search record is deposited at `searchRxiv`, cross-link it to the public companion repository and, once minted, the Zenodo DOI for the full transparency package.
+When this search record is deposited at `searchRxiv`, cross-link it to the public companion repository `https://github.com/frankl8383/osa_hypoxic_metrics_rr_companion` and the Zenodo DOI `https://doi.org/10.5281/zenodo.19228372` for the full transparency package.

@@ -9,6 +9,7 @@ It is designed for a `GitHub + Zenodo` release path and is deliberately limited 
 Public repository URL:
 
 - `https://github.com/frankl8383/osa_hypoxic_metrics_rr_companion`
+- Zenodo DOI: `https://doi.org/10.5281/zenodo.19228372`
 
 ## Release Mode
 
@@ -68,8 +69,7 @@ For most public-repository purposes, the key reusable materials are:
 ## Public Release Checklist
 
 - review `metadata/deposit_checklist.md`
-- mint a DOI through `Zenodo` or another persistent repository
-- replace DOI placeholders in `metadata/data_and_code_availability_statement_draft.md`
+- Zenodo DOI minted: `10.5281/zenodo.19228372`
 - if desired, submit the search-strategy packet in `searchrxiv/` through the searchRxiv web interface
 
 ## Citation Practice
@@ -79,4 +79,4 @@ After deposit, cite both:
 - the manuscript
 - the repository DOI
 
-Draft citation metadata is provided in `CITATION.cff` and `.zenodo.json`.
+Repository citation metadata is provided in `CITATION.cff` and `.zenodo.json`.
