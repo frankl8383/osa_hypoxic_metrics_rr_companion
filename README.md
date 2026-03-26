@@ -27,7 +27,7 @@ Public repository URL:
 - final export and figure-generation script
 - final public supplementary CSV files
 - final main figure PDFs
-- Zenodo and data-availability metadata drafts
+- Zenodo and data-availability metadata files
 - a submission-ready `searchRxiv` packet for the executed search strategies
 
 ## What Is Intentionally Excluded
@@ -52,11 +52,11 @@ Public repository URL:
 - `release/supplement/`: final public-facing supplementary CSV/MD files
 - `release/figures/`: final upload-ready figure PDFs
 - `searchrxiv/`: manual-upload packet for the search-strategy deposit
-- `metadata/`: Zenodo/GitHub deposit notes, environment notes, and statement drafts
+- `metadata/`: Zenodo/GitHub deposit notes, environment notes, and statement options
 
 ## Reproduction Notes
 
-This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v26 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
+This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v31 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
 
 For most public-repository purposes, the key reusable materials are:
 
