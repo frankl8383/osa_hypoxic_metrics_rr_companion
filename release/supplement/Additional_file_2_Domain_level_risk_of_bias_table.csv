@@ -10,7 +10,7 @@ Azarbarzin 2019 [7],HB -> CVD mortality,L,L,L,L,L,L,L
 Baumert 2020 [11],T90; ODI -> CVD mortality,L,L,L,L,M,L,M
 Labarca 2019 [24],T90; nadir SpO2 -> all-cause mortality,H,M,M,L,H,H,H
 Azarbarzin 2020 [8],SASHB -> incident HF,L,L,L,L,L,M,L
-Briancon-Marjollet 2021 [12],T90 -> incident AF,M,L,M,M,M,M,M
+Blanchard 2021 [12],T90 -> incident AF,M,L,M,M,M,M,M
 Trzepizur 2022 [16],HB; T90 -> MACE; all-cause mortality,M,L,M,M,M,M,M
 Suzuki 2022 [25],T90 -> AF recurrence,H,M,M,M,H,M,H
 Chung 2022 [26],ODI -> 30-day postoperative CV events,M,L,M,M,M,M,M

@@ -11,7 +11,7 @@ Create an exploratory `T90 -> incident atrial fibrillation` sensitivity meta-ana
 - Cleveland reported row:
   - `Heinzinger_2023_Cleveland_incAF_T90_per10`
   - reported directly as `HR 1.06 (1.04-1.08)` per 10-percentage-point increase in `T90`
-- Briancon-Marjollet reported row:
+- Blanchard reported row:
   - `BrianconMarjollet_2021_multicenterOSA_incAF_T90_per1pct`
   - reported as `HR 1.01 (1.00-1.02)` per 1% increase in `T90`
 
@@ -38,7 +38,7 @@ Create an exploratory `T90 -> incident atrial fibrillation` sensitivity meta-ana
 ## Interpretation
 
 - both harmonization variants point in the same direction
-- the pooled AF signal is numerically stable because the transformed Briancon-Marjollet row is directionally concordant with the Cleveland row
+- the pooled AF signal is numerically stable because the transformed Blanchard row is directionally concordant with the Cleveland row
 - this remains an exploratory sensitivity analysis rather than a default primary pooled cell because one contributing study was mathematically rescaled from rounded published summary statistics
 
 ## Non-Pooled Categorical Support

@@ -1252,13 +1252,15 @@ def cohort_class_short(text: str) -> str:
 
 def study_label(citation_key: str, pmid: str = "") -> str:
     parts = citation_key.split("_")
+    year = next((p for p in parts if p.isdigit() and len(p) == 4), "")
+    surname = parts[0]
+    if surname == "BrianconMarjollet" and year == "2021":
+        surname = "Blanchard"
     surname = (
-        parts[0]
-        .replace("BrianconMarjollet", "Briancon-Marjollet")
+        surname.replace("BrianconMarjollet", "Briancon-Marjollet")
         .replace("RiveraLopez", "Rivera-Lopez")
         .replace("HenriquezBeltran", "Henríquez-Beltrán")
     )
-    year = next((p for p in parts if p.isdigit() and len(p) == 4), "")
     if year:
         return f"{surname} {year}"
     if pmid:
@@ -1345,9 +1347,9 @@ def clean_sensitivity_note(row: dict[str, str]) -> str:
     if sensitivity_type == "manual_pooled" and "incident_heart_failure" in analysis_cell_id:
         return "Competing-risk modeling yielded a near-identical estimate in the same 2 male SASHB cohorts."
     if sensitivity_type == "primary_exploratory_harmonization":
-        return "Rounded-CI rescaling of the Briancon-Marjollet T90 row to a per-10% scale yielded a similar exploratory AF estimate."
+        return "Rounded-CI rescaling of the Blanchard T90 row to a per-10% scale yielded a similar exploratory AF estimate."
     if sensitivity_type == "precision_check_sensitivity":
-        return "Alternative SE derivation for the same Briancon-Marjollet rescaling yielded a near-identical exploratory AF estimate."
+        return "Alternative SE derivation for the same Blanchard rescaling yielded a near-identical exploratory AF estimate."
     return first_sentence(row.get("notes", ""))
 
 
@@ -3190,7 +3192,7 @@ def build_protocol_search_appendix(path: Path) -> None:
 
         On `2026-03-26`, we completed a targeted anchor-centered citation-chasing completeness pass around the main HB/SASHB mortality or heart-failure anchors, the T90/ODI atrial-fibrillation and mortality anchors, and all studies carried into the post-freeze evidence-upgrade supplement. Candidate follow-on papers were checked against primary-source `PubMed`, `PMC`, or journal DOI records under the same protocol-concordant retention rules.
 
-        - anchor set interrogated: `Azarbarzin 2019/2020`, `Labarca 2023`, `Briancon-Marjollet 2021`, `Baumert 2020`, `Oldenburg 2016`, `Heinzinger 2023`, `Kendzerska 2018`, `Trzepizur 2022`, `Hui 2024`, `Vichova 2025`, `Mazzotti 2025`, plus the retained post-freeze upgrade studies
+        - anchor set interrogated: `Azarbarzin 2019/2020`, `Labarca 2023`, `Blanchard 2021`, `Baumert 2020`, `Oldenburg 2016`, `Heinzinger 2023`, `Kendzerska 2018`, `Trzepizur 2022`, `Hui 2024`, `Vichova 2025`, `Mazzotti 2025`, plus the retained post-freeze upgrade studies
         - strongest rescued article already integrated: `Henríquez-Beltrán 2024` (PMID `37656346`)
         - final result of this pass: `no additional protocol-concordant retained study or retained cohort-level row beyond the integrated 31-article / 54-row updated submission dataset`
         - effect on the four primary pooled cells: `no new independent publication-level replication was identified for HB -> cardiovascular mortality, HB -> all-cause mortality, or SASHB -> incident heart failure`

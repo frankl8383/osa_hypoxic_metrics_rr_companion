@@ -96,7 +96,7 @@ After the historical executed package was frozen, we performed a targeted post-f
 
 On `2026-03-26`, we completed a targeted anchor-centered citation-chasing completeness pass around the main HB/SASHB mortality or heart-failure anchors, the T90/ODI atrial-fibrillation and mortality anchors, and all studies carried into the post-freeze evidence-upgrade supplement. Candidate follow-on papers were checked against primary-source `PubMed`, `PMC`, or journal DOI records under the same protocol-concordant retention rules.
 
-- anchor set interrogated: `Azarbarzin 2019/2020`, `Labarca 2023`, `Briancon-Marjollet 2021`, `Baumert 2020`, `Oldenburg 2016`, `Heinzinger 2023`, `Kendzerska 2018`, `Trzepizur 2022`, `Hui 2024`, `Vichova 2025`, `Mazzotti 2025`, plus the retained post-freeze upgrade studies
+- anchor set interrogated: `Azarbarzin 2019/2020`, `Labarca 2023`, `Blanchard 2021`, `Baumert 2020`, `Oldenburg 2016`, `Heinzinger 2023`, `Kendzerska 2018`, `Trzepizur 2022`, `Hui 2024`, `Vichova 2025`, `Mazzotti 2025`, plus the retained post-freeze upgrade studies
 - strongest rescued article already integrated: `Henríquez-Beltrán 2024` (PMID `37656346`)
 - final result of this pass: `no additional protocol-concordant retained study or retained cohort-level row beyond the integrated 31-article / 54-row updated submission dataset`
 - effect on the four primary pooled cells: `no new independent publication-level replication was identified for HB -> cardiovascular mortality, HB -> all-cause mortality, or SASHB -> incident heart failure`
@@ -138,7 +138,7 @@ Metric-specific PubMed side searches were executed as a supplementary recall aud
 | Huang 2020 | 31967668 | Fuwai ADHF | Specialized/context/noncanonical comparator report | Did not yield a prespecified retained row in the historical executed quantitative evidence set. |
 | Jhamb M 2020 | 31969341 | CKD/ESKD | Specialized/context/noncanonical comparator report | Did not yield a prespecified retained row in the historical executed quantitative evidence set. |
 | Linz 2020 | 32679239 | SAVE trial | Narrative-only or nonextractable report | No extractable protocol-concordant hard-outcome estimate for the historical executed quantitative evidence set. |
-| Blanchard 2021 | 33214210 | letter note | Narrative-only or nonextractable report | No extractable protocol-concordant hard-outcome estimate for the historical executed quantitative evidence set. |
+| Blanchard 2021 (letter note) | 33214210 | letter note | Narrative-only or nonextractable report | No extractable protocol-concordant hard-outcome estimate for the historical executed quantitative evidence set. |
 | Labarca 2021 (SantOSA; PMID 33394326) | 33394326 | SantOSA | Later retained in post-freeze supplement | Historical executed package remained frozen; the article was later re-adjudicated and retained in the updated submission dataset. |
 | Cui H 2021 | 34226030 | obstructive HCM septal-myectomy cohort | Specialized/context/noncanonical comparator report | Did not yield a prespecified retained row in the historical executed quantitative evidence set. |
 | Mehra R 2022 | 34797743 | PMID 34797743 | Protocol exclusion | Outside the prespecified OSA-related prognostic scope. |
