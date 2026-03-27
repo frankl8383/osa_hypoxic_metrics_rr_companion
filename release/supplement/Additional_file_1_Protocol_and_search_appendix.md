@@ -83,13 +83,13 @@ Reports not retained in the historical executed quantitative evidence set after 
 
 ## Post-freeze evidence-upgrade supplement
 
-After the historical executed package was frozen, we performed a targeted post-freeze evidence-upgrade supplement focused on high-value full texts and open-access anchors identified during manuscript finalization. A final strict-review re-adjudication also rescued one previously screened dual-cohort T90 mortality paper into the updated dataset. This supplement did not alter the Figure 1 historical PRISMA accounting and was adjudicated using the same protocol-concordant extraction and retention rules.
+After the historical executed package was frozen, we performed a targeted post-freeze evidence-upgrade supplement focused on high-value full texts and open-access anchors identified during manuscript finalization. A final strict-review re-adjudication also rescued one previously screened dual-cohort T90 mortality paper into the updated dataset. This supplement is now integrated directly into the final-state Figure 1 accounting and was adjudicated using the same protocol-concordant extraction and retention rules.
 
 - targeted studies/open-access anchors reviewed: `8`
 - retained into the updated submission dataset: `7` studies contributing `9` cohort-level rows
 - contextual-only specialized paper acknowledged but not rowed: `1` (`Pinilla 2023`, PMID `37734857`)
 - updated final submission dataset: `31` unique articles, `54` cohort-level rows, `38` primary retained rows, and `16` sensitivity/comparator rows
-- historical executed package preserved for Figure 1 and screening accounting: `24` unique articles and `45` cohort-level rows
+- Figure 1 now ends in the final-state dataset while preserving the executed-package subcount: `24` unique articles and `45` cohort-level rows from the three-database package plus `7` added studies from the integrated supplement
 - effect on the four primary pooled cells: `no new pooled cell was added and the four-cell primary pooled structure remained unchanged`
 
 ## Final anchor-centered citation-chasing completeness pass

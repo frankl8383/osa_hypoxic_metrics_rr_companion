@@ -56,7 +56,7 @@ Public repository URL:
 
 ## Reproduction Notes
 
-This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v37 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
+This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v38 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
 
 For most public-repository purposes, the key reusable materials are:
 

@@ -546,11 +546,26 @@ def patch_docx(
 <w:ftr xmlns:w="{W_NS}" xmlns:r="{R_NS}">
   <w:p>
     <w:pPr><w:jc w:val="right"/></w:pPr>
-    <w:r><w:fldChar w:fldCharType="begin"/></w:r>
-    <w:r><w:instrText xml:space="preserve"> PAGE </w:instrText></w:r>
-    <w:r><w:fldChar w:fldCharType="separate"/></w:r>
-    <w:r><w:t>1</w:t></w:r>
-    <w:r><w:fldChar w:fldCharType="end"/></w:r>
+    <w:r>
+      <w:rPr><w:rFonts w:ascii="{font_name}" w:hAnsi="{font_name}" w:eastAsia="{font_name}" w:cs="{font_name}"/></w:rPr>
+      <w:fldChar w:fldCharType="begin"/>
+    </w:r>
+    <w:r>
+      <w:rPr><w:rFonts w:ascii="{font_name}" w:hAnsi="{font_name}" w:eastAsia="{font_name}" w:cs="{font_name}"/></w:rPr>
+      <w:instrText xml:space="preserve"> PAGE </w:instrText>
+    </w:r>
+    <w:r>
+      <w:rPr><w:rFonts w:ascii="{font_name}" w:hAnsi="{font_name}" w:eastAsia="{font_name}" w:cs="{font_name}"/></w:rPr>
+      <w:fldChar w:fldCharType="separate"/>
+    </w:r>
+    <w:r>
+      <w:rPr><w:rFonts w:ascii="{font_name}" w:hAnsi="{font_name}" w:eastAsia="{font_name}" w:cs="{font_name}"/></w:rPr>
+      <w:t>1</w:t>
+    </w:r>
+    <w:r>
+      <w:rPr><w:rFonts w:ascii="{font_name}" w:hAnsi="{font_name}" w:eastAsia="{font_name}" w:cs="{font_name}"/></w:rPr>
+      <w:fldChar w:fldCharType="end"/>
+    </w:r>
   </w:p>
 </w:ftr>
 """
@@ -568,8 +583,7 @@ def patch_docx(
                 next_rid = footer_rel.attrib.get("Id")
                 footer_target = footer_rel.attrib.get("Target", "footer1.xml")
                 existing_footer_path = tmp / "word" / footer_target
-                if not existing_footer_path.exists():
-                    existing_footer_path.write_text(footer_xml, encoding="utf-8")
+                existing_footer_path.write_text(footer_xml, encoding="utf-8")
             else:
                 footer_path.write_text(footer_xml, encoding="utf-8")
                 existing_ids = []
@@ -596,6 +610,24 @@ def patch_docx(
         if body is None:
             raise RuntimeError("No body found in generated docx")
 
+        def normalize_run_font(run: ET.Element) -> None:
+            rpr = run.find(qn(W_NS, "rPr"))
+            if rpr is None:
+                rpr = ET.SubElement(run, qn(W_NS, "rPr"))
+            rfonts = rpr.find(qn(W_NS, "rFonts"))
+            if rfonts is None:
+                rfonts = ET.SubElement(rpr, qn(W_NS, "rFonts"))
+            for attr in ("ascii", "hAnsi", "eastAsia", "cs"):
+                rfonts.set(qn(W_NS, attr), font_name)
+            for attr in ("asciiTheme", "hAnsiTheme", "eastAsiaTheme", "cstheme"):
+                rfonts.attrib.pop(qn(W_NS, attr), None)
+
+        # Pandoc/RTF round-trips can leave direct run-level Helvetica formatting
+        # even after the style defaults are switched to Times New Roman. Normalize
+        # the concrete runs so the final upload DOCX reflects the intended body font.
+        for run in doc_root.findall(f".//{qn(W_NS, 'r')}"):
+            normalize_run_font(run)
+
         def replace_paragraph_with_lines(para: ET.Element, lines: list[str]) -> None:
             ppr = para.find(qn(W_NS, "pPr"))
             for child in list(para):
@@ -609,9 +641,11 @@ def patch_docx(
                 if line.startswith(" ") or line.endswith(" "):
                     t.set("{http://www.w3.org/XML/1998/namespace}space", "preserve")
                 t.text = line
+                normalize_run_font(run)
                 if idx < len(lines) - 1:
                     br_run = ET.SubElement(para, qn(W_NS, "r"))
                     ET.SubElement(br_run, qn(W_NS, "br"))
+                    normalize_run_font(br_run)
 
         sects = doc_root.findall(f".//{qn(W_NS, 'sectPr')}")
         if not sects:
@@ -989,6 +1023,7 @@ def patch_docx(
                         rpr = ET.SubElement(run, qn(W_NS, "rPr"))
                     if rpr.find(qn(W_NS, "b")) is None:
                         ET.SubElement(rpr, qn(W_NS, "b"))
+                    normalize_run_font(run)
                     sz = rpr.find(qn(W_NS, "sz"))
                     if sz is None:
                         sz = ET.SubElement(rpr, qn(W_NS, "sz"))
@@ -1007,6 +1042,7 @@ def patch_docx(
                     rpr = run.find(qn(W_NS, "rPr"))
                     if rpr is None:
                         rpr = ET.SubElement(run, qn(W_NS, "rPr"))
+                    normalize_run_font(run)
                     sz = rpr.find(qn(W_NS, "sz"))
                     if sz is None:
                         sz = ET.SubElement(rpr, qn(W_NS, "sz"))
@@ -1838,6 +1874,8 @@ def parse_prisma_counts() -> dict[str, int]:
     out["upgrade_retained_articles"] = len({row["article_pmid"] for row in upgrade_rows})
     out["upgrade_retained_rows"] = len(upgrade_rows)
     out["later_retained_postfreeze"] = len(upgrade_pmids)
+    out["supplement_contextual_only"] = 1
+    out["supplement_reports_reviewed"] = out["upgrade_retained_articles"] + out["supplement_contextual_only"]
     out["title_abstract_excluded"] = out["screened_total"] - out["fulltext_reviewed"]
     out["fulltext_not_retained"] = out["fulltext_reviewed"] - out["included_articles"]
     decision_counts = Counter(row["provisional_fulltext_decision"] for row in historical_nonretained_fulltext_rows)
@@ -2076,7 +2114,7 @@ def draw_box_with_text(
 def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
     duplicates_removed = counts["pubmed_ids"] + counts["wos_exported"] + counts["embase_exported"] - counts["screened_total"]
     scale = FIG_NATIVE_SCALE
-    img = Image.new("RGB", (px(2200, scale), px(1260, scale)), "white")
+    img = Image.new("RGB", (px(2200, scale), px(1320, scale)), "white")
     draw = ImageDraw.Draw(img)
     box_title_font = load_font(px(28, scale), bold=True)
     body_font = load_font(px(22, scale), bold=False)
@@ -2181,9 +2219,35 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
     )
     draw_box_with_text(
         draw,
-        scale_box((810, 1010, 1510, 1150), scale),
-        "Studies included in quantitative evidence set",
-        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows in the historical extraction master"],
+        scale_box((810, 1010, 1410, 1170), scale),
+        "Retained from executed three-database package",
+        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows"],
+        "#f6fffb",
+        "#0f766e",
+        box_title_font,
+        body_font,
+        scale=scale,
+    )
+    draw_box_with_text(
+        draw,
+        scale_box((120, 980, 700, 1200), scale),
+        "Post-freeze supplement and re-adjudication",
+        [
+            f"{counts['supplement_reports_reviewed']} targeted reports assessed",
+            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} cohort-level rows added",
+            f"{counts['supplement_contextual_only']} contextual-only paper not rowed",
+        ],
+        "#fff8e8",
+        "#a7701b",
+        box_title_font,
+        body_font,
+        scale=scale,
+    )
+    draw_box_with_text(
+        draw,
+        scale_box((1500, 980, 2100, 1200), scale),
+        "Studies included in final quantitative evidence set",
+        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level rows in the final submission dataset"],
         "#f6fffb",
         "#0f766e",
         box_title_font,
@@ -2201,16 +2265,18 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
     draw_arrow(draw, scale_box((1160, 610, 1160, 710), scale)[:2], scale_box((1160, 610, 1160, 710), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1510, 770, 1520, 770), scale)[:2], scale_box((1510, 770, 1520, 770), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1160, 830, 1160, 1010), scale)[:2], scale_box((1160, 830, 1160, 1010), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw_arrow(draw, scale_box((700, 1090, 1500, 1090), scale)[:2], scale_box((700, 1090, 1500, 1090), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw_arrow(draw, scale_box((1410, 1090, 1500, 1090), scale)[:2], scale_box((1410, 1090, 1500, 1090), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     return img
 
 
 def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
     ensure_dir(path.parent)
     lines = [
-        '<svg xmlns="http://www.w3.org/2000/svg" width="980" height="620" viewBox="0 0 980 620">',
-        '<style>text{font-family:Arial,sans-serif;fill:#1f2937}.title{font-size:22px;font-weight:700}.box-title{font-size:15px;font-weight:700}.body{font-size:13px}.note{font-size:12px}.box{fill:#f8fbff;stroke:#2a5f8a;stroke-width:2}.audit{fill:#fff8e8;stroke:#a7701b;stroke-width:2;stroke-dasharray:6 4}.arrow{stroke:#4b5563;stroke-width:2.2;fill:none;marker-end:url(#arrow)}</style>',
+        '<svg xmlns="http://www.w3.org/2000/svg" width="980" height="700" viewBox="0 0 980 700">',
+        '<style>text{font-family:Arial,sans-serif;fill:#1f2937}.title{font-size:22px;font-weight:700}.box-title{font-size:15px;font-weight:700}.body{font-size:13px}.note{font-size:12px}.box{fill:#f8fbff;stroke:#2a5f8a;stroke-width:2}.audit{fill:#fff8e8;stroke:#a7701b;stroke-width:2;stroke-dasharray:6 4}.final{fill:#f6fffb;stroke:#0f766e;stroke-width:2}.arrow{stroke:#4b5563;stroke-width:2.2;fill:none;marker-end:url(#arrow)}</style>',
         '<defs><marker id="arrow" markerWidth="12" markerHeight="8" refX="10" refY="4" orient="auto"><polygon points="0 0, 12 4, 0 8" fill="#4b5563"/></marker></defs>',
-        '<text class="title" x="40" y="34">Figure 1. PRISMA flow of the executed three-database package</text>',
+        '<text class="title" x="40" y="34">Figure 1. PRISMA flow of the final quantitative evidence set</text>',
     ]
 
     def add_box(x: int, y: int, w: int, h: int, title: str, body: list[str], cls: str = "box") -> None:
@@ -2279,11 +2345,33 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
     )
     add_box(
         360,
-        488,
-        240,
-        82,
-        "Included in quantitative evidence set",
-        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows in the historical extraction master"],
+        500,
+        250,
+        88,
+        "Retained from executed three-database package",
+        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows"],
+    )
+    add_box(
+        40,
+        500,
+        260,
+        120,
+        "Post-freeze supplement and re-adjudication",
+        [
+            f"{counts['supplement_reports_reviewed']} targeted reports assessed",
+            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} rows added",
+            f"{counts['supplement_contextual_only']} contextual-only paper not rowed",
+        ],
+        cls="audit",
+    )
+    add_box(
+        680,
+        500,
+        260,
+        120,
+        "Included in final quantitative evidence set",
+        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level rows in the final submission dataset"],
+        cls="final",
     )
     lines.extend(
         [
@@ -2291,7 +2379,9 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
             '<path class="arrow" d="M480 274 L480 332"/>',
             '<path class="arrow" d="M420 274 L420 373 L300 373"/>',
             '<path class="arrow" d="M540 274 L790 332"/>',
-            '<path class="arrow" d="M480 414 L480 488"/>',
+            '<path class="arrow" d="M480 414 L480 500"/>',
+            '<path class="arrow" d="M300 560 L680 560"/>',
+            '<path class="arrow" d="M610 544 L680 544"/>',
             '</svg>',
         ]
     )
@@ -2758,7 +2848,7 @@ def draw_forest_panel_vector(
 def build_prisma_vector_eps(path: Path) -> None:
     counts = parse_prisma_counts()
     duplicates_removed = counts["pubmed_ids"] + counts["wos_exported"] + counts["embase_exported"] - counts["screened_total"]
-    canvas = PSCanvas(1100, 660)
+    canvas = PSCanvas(1100, 720)
     draw_box_with_text_vector(
         canvas,
         (320, 18, 780, 116),
@@ -2793,9 +2883,33 @@ def build_prisma_vector_eps(path: Path) -> None:
     )
     draw_box_with_text_vector(
         canvas,
-        (400, 574, 760, 650),
-        "Studies included in quantitative evidence set",
-        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows in the historical extraction master"],
+        (400, 574, 700, 660),
+        "Retained from executed three-database package",
+        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows"],
+        fill="#f6fffb",
+        stroke="#0f766e",
+        title_size=13,
+        body_size=10,
+    )
+    draw_box_with_text_vector(
+        canvas,
+        (30, 560, 340, 690),
+        "Post-freeze supplement and re-adjudication",
+        [
+            f"{counts['supplement_reports_reviewed']} targeted reports assessed",
+            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} rows added",
+            f"{counts['supplement_contextual_only']} contextual-only paper not rowed",
+        ],
+        fill="#fff8e8",
+        stroke="#a7701b",
+        title_size=13,
+        body_size=10,
+    )
+    draw_box_with_text_vector(
+        canvas,
+        (760, 560, 1085, 690),
+        "Studies included in final quantitative evidence set",
+        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level rows in the final submission dataset"],
         fill="#f6fffb",
         stroke="#0f766e",
         title_size=13,
@@ -2810,7 +2924,9 @@ def build_prisma_vector_eps(path: Path) -> None:
     draw_arrow_vector(canvas, (760, 336), (800, 336))
     draw_arrow_vector(canvas, (580, 373), (580, 442))
     draw_arrow_vector(canvas, (760, 486), (770, 486))
-    draw_arrow_vector(canvas, (580, 515), (580, 574))
+    draw_arrow_vector(canvas, (580, 515), (550, 574))
+    draw_arrow_vector(canvas, (340, 625), (760, 625))
+    draw_arrow_vector(canvas, (700, 617), (760, 617))
     canvas.save_eps(path)
 
 
@@ -3178,13 +3294,13 @@ def build_protocol_search_appendix(path: Path) -> None:
 
         ## Post-freeze evidence-upgrade supplement
 
-        After the historical executed package was frozen, we performed a targeted post-freeze evidence-upgrade supplement focused on high-value full texts and open-access anchors identified during manuscript finalization. A final strict-review re-adjudication also rescued one previously screened dual-cohort T90 mortality paper into the updated dataset. This supplement did not alter the Figure 1 historical PRISMA accounting and was adjudicated using the same protocol-concordant extraction and retention rules.
+        After the historical executed package was frozen, we performed a targeted post-freeze evidence-upgrade supplement focused on high-value full texts and open-access anchors identified during manuscript finalization. A final strict-review re-adjudication also rescued one previously screened dual-cohort T90 mortality paper into the updated dataset. This supplement is now integrated directly into the final-state Figure 1 accounting and was adjudicated using the same protocol-concordant extraction and retention rules.
 
-        - targeted studies/open-access anchors reviewed: `8`
+        - targeted studies/open-access anchors reviewed: `{counts['supplement_reports_reviewed']}`
         - retained into the updated submission dataset: `{counts['upgrade_retained_articles']}` studies contributing `{counts['upgrade_retained_rows']}` cohort-level rows
         - contextual-only specialized paper acknowledged but not rowed: `1` (`Pinilla 2023`, PMID `37734857`)
         - updated final submission dataset: `{counts['updated_included_articles']}` unique articles, `{counts['updated_rows']}` cohort-level rows, `{counts['updated_primary_rows']}` primary retained rows, and `{counts['updated_sensitivity_rows']}` sensitivity/comparator rows
-        - historical executed package preserved for Figure 1 and screening accounting: `{counts['included_articles']}` unique articles and `{counts['historical_rows']}` cohort-level rows
+        - Figure 1 now ends in the final-state dataset while preserving the executed-package subcount: `{counts['included_articles']}` unique articles and `{counts['historical_rows']}` cohort-level rows from the three-database package plus `{counts['upgrade_retained_articles']}` added studies from the integrated supplement
         - effect on the four primary pooled cells: `no new pooled cell was added and the four-cell primary pooled structure remained unchanged`
 
         ## Final anchor-centered citation-chasing completeness pass
@@ -3359,8 +3475,8 @@ def export_tables() -> None:
         (
             "Table_1_study_characteristics",
             "Table 1. Cohort map of included articles",
-            "Article-level cohort map. Cls is shown as Clin, Comm, or Spec. For multi-cohort articles, cohort-specific sample sizes and follow-up values are shown as cohort-labeled semicolon-separated entries within the same cell; slash-separated values within a cohort label indicate multiple retained rows from the same cohort family.",
-            build_table1(),
+            "Table 1 summarizes retained articles by cohort class, main metric family, outcome anchor, analytic sample size, evidence layer, and overall risk of bias. For multi-cohort articles, cohort-specific sample sizes are shown with cohort-labeled semicolon-separated entries within the same cell; slash-separated values within a cohort label indicate multiple retained rows from the same cohort family.",
+            build_main_table1(),
         ),
         (
             "Table_2_primary_pooled_results",
