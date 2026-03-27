@@ -12,7 +12,7 @@ Create an exploratory `T90 -> incident atrial fibrillation` sensitivity meta-ana
   - `Heinzinger_2023_Cleveland_incAF_T90_per10`
   - reported directly as `HR 1.06 (1.04-1.08)` per 10-percentage-point increase in `T90`
 - Blanchard reported row:
-  - `BrianconMarjollet_2021_multicenterOSA_incAF_T90_per1pct`
+  - `Blanchard_2021_multicenterOSA_incAF_T90_per1pct`
   - reported as `HR 1.01 (1.00-1.02)` per 1% increase in `T90`
 
 ## Harmonization Rule
@@ -43,7 +43,7 @@ Create an exploratory `T90 -> incident atrial fibrillation` sensitivity meta-ana
 
 ## Non-Pooled Categorical Support
 
-- `BrianconMarjollet_2021_multicenterOSA_incAF_T90_q4`:
+- `Blanchard_2021_multicenterOSA_incAF_T90_q4`:
   - `HR 2.20 (1.23-3.91)`
   - highest versus lowest `T90` quartile
   - retained as supportive narrative evidence only

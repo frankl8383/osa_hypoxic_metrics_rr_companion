@@ -1254,8 +1254,6 @@ def study_label(citation_key: str, pmid: str = "") -> str:
     parts = citation_key.split("_")
     year = next((p for p in parts if p.isdigit() and len(p) == 4), "")
     surname = parts[0]
-    if surname == "BrianconMarjollet" and year == "2021":
-        surname = "Blanchard"
     surname = (
         surname.replace("BrianconMarjollet", "Briancon-Marjollet")
         .replace("RiveraLopez", "Rivera-Lopez")
