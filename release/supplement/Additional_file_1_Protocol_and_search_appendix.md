@@ -87,7 +87,7 @@ After the historical executed package was frozen, we performed a targeted post-f
 
 - targeted studies/open-access anchors reviewed: `8`
 - retained into the updated submission dataset: `7` studies contributing `9` cohort-level rows
-- contextual-only specialized paper acknowledged but not rowed: `1` (`Pinilla 2023`, PMID `37734857`)
+- contextual-only specialized paper reviewed but not included in the quantitative evidence set: `1` (`Pinilla 2023`, PMID `37734857`)
 - updated final submission dataset: `31` unique articles, `54` cohort-level rows, `38` primary retained rows, and `16` sensitivity/comparator rows
 - Figure 1 now ends in the final-state dataset while preserving the executed-package subcount: `24` unique articles and `45` cohort-level rows from the three-database package plus `7` added studies from the integrated supplement
 - effect on the four primary pooled cells: `no new pooled cell was added and the four-cell primary pooled structure remained unchanged`

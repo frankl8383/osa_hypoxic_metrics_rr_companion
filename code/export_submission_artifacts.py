@@ -2235,7 +2235,7 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
             f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} cohort-level rows added",
-            f"{counts['supplement_contextual_only']} contextual-only paper not rowed",
+            f"{counts['supplement_contextual_only']} contextual-only report reviewed; not quantitatively included",
         ],
         "#fff8e8",
         "#a7701b",
@@ -2265,7 +2265,11 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
     draw_arrow(draw, scale_box((1160, 610, 1160, 710), scale)[:2], scale_box((1160, 610, 1160, 710), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1510, 770, 1520, 770), scale)[:2], scale_box((1510, 770, 1520, 770), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1160, 830, 1160, 1010), scale)[:2], scale_box((1160, 830, 1160, 1010), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
-    draw_arrow(draw, scale_box((700, 1090, 1500, 1090), scale)[:2], scale_box((700, 1090, 1500, 1090), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw.line(scale_box((700, 1140, 760, 1140), scale), fill=arrow_color, width=px(5, scale))
+    draw.line(scale_box((760, 1140, 760, 1230), scale), fill=arrow_color, width=px(5, scale))
+    draw.line(scale_box((760, 1230, 1440, 1230), scale), fill=arrow_color, width=px(5, scale))
+    draw.line(scale_box((1440, 1230, 1440, 1140), scale), fill=arrow_color, width=px(5, scale))
+    draw_arrow(draw, scale_box((1440, 1140, 1500, 1140), scale)[:2], scale_box((1440, 1140, 1500, 1140), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1410, 1090, 1500, 1090), scale)[:2], scale_box((1410, 1090, 1500, 1090), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     return img
 
@@ -2360,7 +2364,7 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
             f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} rows added",
-            f"{counts['supplement_contextual_only']} contextual-only paper not rowed",
+            f"{counts['supplement_contextual_only']} contextual-only report reviewed; not quantitatively included",
         ],
         cls="audit",
     )
@@ -2380,7 +2384,7 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
             '<path class="arrow" d="M420 274 L420 373 L300 373"/>',
             '<path class="arrow" d="M540 274 L790 332"/>',
             '<path class="arrow" d="M480 414 L480 500"/>',
-            '<path class="arrow" d="M300 560 L680 560"/>',
+            '<path class="arrow" d="M300 576 L332 576 L332 640 L642 640 L642 576 L680 576"/>',
             '<path class="arrow" d="M610 544 L680 544"/>',
             '</svg>',
         ]
@@ -2898,7 +2902,7 @@ def build_prisma_vector_eps(path: Path) -> None:
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
             f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} rows added",
-            f"{counts['supplement_contextual_only']} contextual-only paper not rowed",
+            f"{counts['supplement_contextual_only']} contextual-only report reviewed; not quantitatively included",
         ],
         fill="#fff8e8",
         stroke="#a7701b",
@@ -2925,7 +2929,11 @@ def build_prisma_vector_eps(path: Path) -> None:
     draw_arrow_vector(canvas, (580, 373), (580, 442))
     draw_arrow_vector(canvas, (760, 486), (770, 486))
     draw_arrow_vector(canvas, (580, 515), (550, 574))
-    draw_arrow_vector(canvas, (340, 625), (760, 625))
+    canvas.line(340, 640, 378, 640, color="#4b5563", width=2)
+    canvas.line(378, 640, 378, 700, color="#4b5563", width=2)
+    canvas.line(378, 700, 718, 700, color="#4b5563", width=2)
+    canvas.line(718, 700, 718, 640, color="#4b5563", width=2)
+    draw_arrow_vector(canvas, (718, 640), (760, 640))
     draw_arrow_vector(canvas, (700, 617), (760, 617))
     canvas.save_eps(path)
 
@@ -3298,7 +3306,7 @@ def build_protocol_search_appendix(path: Path) -> None:
 
         - targeted studies/open-access anchors reviewed: `{counts['supplement_reports_reviewed']}`
         - retained into the updated submission dataset: `{counts['upgrade_retained_articles']}` studies contributing `{counts['upgrade_retained_rows']}` cohort-level rows
-        - contextual-only specialized paper acknowledged but not rowed: `1` (`Pinilla 2023`, PMID `37734857`)
+        - contextual-only specialized paper reviewed but not included in the quantitative evidence set: `1` (`Pinilla 2023`, PMID `37734857`)
         - updated final submission dataset: `{counts['updated_included_articles']}` unique articles, `{counts['updated_rows']}` cohort-level rows, `{counts['updated_primary_rows']}` primary retained rows, and `{counts['updated_sensitivity_rows']}` sensitivity/comparator rows
         - Figure 1 now ends in the final-state dataset while preserving the executed-package subcount: `{counts['included_articles']}` unique articles and `{counts['historical_rows']}` cohort-level rows from the three-database package plus `{counts['upgrade_retained_articles']}` added studies from the integrated supplement
         - effect on the four primary pooled cells: `no new pooled cell was added and the four-cell primary pooled structure remained unchanged`
