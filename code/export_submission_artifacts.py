@@ -2855,10 +2855,10 @@ def draw_forest_panel_vector(
 def build_prisma_vector_eps(path: Path) -> None:
     counts = parse_prisma_counts()
     duplicates_removed = counts["pubmed_ids"] + counts["wos_exported"] + counts["embase_exported"] - counts["screened_total"]
-    canvas = PSCanvas(1100, 720)
+    canvas = PSCanvas(880, 650)
     draw_box_with_text_vector(
         canvas,
-        (320, 18, 780, 116),
+        (250, 18, 620, 124),
         "Records identified from databases",
         [
             f"Total: {counts['pubmed_ids'] + counts['wos_exported'] + counts['embase_exported']}",
@@ -2866,18 +2866,18 @@ def build_prisma_vector_eps(path: Path) -> None:
             f"Web of Science Core Collection: {counts['wos_exported']}",
             f"Embase: {counts['embase_exported']}",
         ],
-        title_size=13,
-        body_size=10,
+        title_size=12,
+        body_size=9,
     )
-    draw_box_with_text_vector(canvas, (60, 155, 350, 228), "Duplicate records removed before screening", [f"{duplicates_removed} records"], title_size=13, body_size=10)
-    draw_box_with_text_vector(canvas, (400, 168, 760, 241), "Records screened", [f"{counts['screened_total']} records"], title_size=13, body_size=10)
-    draw_box_with_text_vector(canvas, (28, 300, 318, 373), "Records excluded", [f"{counts['title_abstract_excluded']} records"], title_size=13, body_size=10)
-    draw_box_with_text_vector(canvas, (400, 300, 760, 373), "Reports sought for retrieval", [f"{counts['fulltext_reviewed']} reports"], title_size=13, body_size=10)
-    draw_box_with_text_vector(canvas, (800, 300, 1060, 373), "Reports not retrieved", ["0 reports"], title_size=13, body_size=10)
-    draw_box_with_text_vector(canvas, (400, 442, 760, 515), "Reports assessed for eligibility", [f"{counts['fulltext_reviewed']} reports"], title_size=13, body_size=10)
+    draw_box_with_text_vector(canvas, (30, 154, 285, 229), "Duplicate records removed before screening", [f"{duplicates_removed} records"], title_size=12, body_size=9)
+    draw_box_with_text_vector(canvas, (325, 169, 620, 244), "Records screened", [f"{counts['screened_total']} records"], title_size=12, body_size=9)
+    draw_box_with_text_vector(canvas, (20, 285, 275, 360), "Records excluded", [f"{counts['title_abstract_excluded']} records"], title_size=12, body_size=9)
+    draw_box_with_text_vector(canvas, (325, 285, 620, 360), "Reports sought for retrieval", [f"{counts['fulltext_reviewed']} reports"], title_size=12, body_size=9)
+    draw_box_with_text_vector(canvas, (640, 285, 850, 360), "Reports not retrieved", ["0 reports"], title_size=12, body_size=9)
+    draw_box_with_text_vector(canvas, (325, 405, 620, 480), "Reports assessed for eligibility", [f"{counts['fulltext_reviewed']} reports"], title_size=12, body_size=9)
     draw_box_with_text_vector(
         canvas,
-        (770, 405, 1085, 568),
+        (625, 380, 860, 530),
         "Reports excluded, with reasons",
         [
             f"{counts['fulltext_not_retained']} reports",
@@ -2885,22 +2885,22 @@ def build_prisma_vector_eps(path: Path) -> None:
             f"Scope/intervention exclusions: {counts['scope_or_protocol_excluded']}",
             f"Specialized/context/noncanonical: {counts['other_nonretained_context']}",
         ],
-        title_size=13,
-        body_size=10,
+        title_size=12,
+        body_size=9,
     )
     draw_box_with_text_vector(
         canvas,
-        (400, 574, 700, 660),
+        (345, 525, 595, 610),
         "Retained from executed three-database package",
         [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level estimates"],
         fill="#f6fffb",
         stroke="#0f766e",
-        title_size=13,
-        body_size=10,
+        title_size=12,
+        body_size=9,
     )
     draw_box_with_text_vector(
         canvas,
-        (30, 560, 340, 690),
+        (20, 515, 285, 635),
         "Post-freeze supplement and re-adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
@@ -2909,48 +2909,48 @@ def build_prisma_vector_eps(path: Path) -> None:
         ],
         fill="#fff8e8",
         stroke="#a7701b",
-        title_size=13,
-        body_size=10,
+        title_size=12,
+        body_size=9,
     )
     draw_box_with_text_vector(
         canvas,
-        (760, 560, 1085, 690),
+        (615, 515, 860, 635),
         "Studies included in final quantitative evidence set",
         [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level estimates in the final submission dataset"],
         fill="#f6fffb",
         stroke="#0f766e",
-        title_size=13,
-        body_size=10,
+        title_size=12,
+        body_size=9,
     )
-    canvas.line(550, 116, 550, 146, color="#4b5563", width=2)
-    canvas.line(205, 146, 580, 146, color="#4b5563", width=2)
-    draw_arrow_vector(canvas, (205, 146), (205, 155))
-    draw_arrow_vector(canvas, (580, 146), (580, 168))
-    canvas.line(580, 241, 580, 270, color="#4b5563", width=2)
-    canvas.line(173, 270, 580, 270, color="#4b5563", width=2)
-    draw_arrow_vector(canvas, (173, 270), (173, 300))
-    draw_arrow_vector(canvas, (580, 270), (580, 300))
-    draw_arrow_vector(canvas, (760, 336), (800, 336))
-    draw_arrow_vector(canvas, (580, 373), (580, 442))
-    draw_arrow_vector(canvas, (760, 486), (770, 486))
-    draw_arrow_vector(canvas, (550, 515), (550, 574))
-    canvas.line(340, 640, 378, 640, color="#4b5563", width=2)
-    canvas.line(378, 640, 378, 700, color="#4b5563", width=2)
-    canvas.line(378, 700, 718, 700, color="#4b5563", width=2)
-    canvas.line(718, 700, 718, 640, color="#4b5563", width=2)
-    draw_arrow_vector(canvas, (718, 640), (760, 640))
-    draw_arrow_vector(canvas, (700, 617), (760, 617))
+    canvas.line(435, 124, 435, 144, color="#4b5563", width=2)
+    canvas.line(160, 144, 472, 144, color="#4b5563", width=2)
+    draw_arrow_vector(canvas, (160, 144), (160, 154))
+    draw_arrow_vector(canvas, (472, 144), (472, 169))
+    canvas.line(472, 230, 472, 255, color="#4b5563", width=2)
+    canvas.line(148, 255, 472, 255, color="#4b5563", width=2)
+    draw_arrow_vector(canvas, (148, 255), (148, 285))
+    draw_arrow_vector(canvas, (472, 255), (472, 285))
+    draw_arrow_vector(canvas, (620, 322), (640, 322))
+    draw_arrow_vector(canvas, (472, 360), (472, 405))
+    draw_arrow_vector(canvas, (620, 442), (625, 442))
+    draw_arrow_vector(canvas, (470, 480), (470, 525))
+    canvas.line(285, 585, 315, 585, color="#4b5563", width=2)
+    canvas.line(315, 585, 315, 645, color="#4b5563", width=2)
+    canvas.line(315, 645, 600, 645, color="#4b5563", width=2)
+    canvas.line(600, 645, 600, 585, color="#4b5563", width=2)
+    draw_arrow_vector(canvas, (600, 585), (615, 585))
+    draw_arrow_vector(canvas, (595, 560), (615, 560))
     canvas.save_eps(path)
 
 
 def build_primary_vector_eps(path: Path) -> None:
     meta_rows = {row["analysis_cell_id"]: row for row in read_tsv(PRIMARY_META / "meta_summary.tsv")}
-    canvas = PSCanvas(1140, 740)
+    canvas = PSCanvas(920, 630)
     panel_specs = [
-        ("HB__CVD_mortality__categorical_high_vs_low", "A. HB and CVD mortality", "High vs low; 1 report / 2 cohorts", (18, 14, 558, 352)),
-        ("HB__CVD_mortality__continuous_log", "B. HB and CVD mortality", "Continuous log-scale; 1 report / 2 cohorts", (582, 14, 1122, 352)),
-        ("HB__all-cause_mortality__continuous_standardized", "C. HB and all-cause mortality", "Per 1 SD; 1 report / 2 cohorts", (18, 386, 558, 724)),
-        ("SASHB__incident_heart_failure__continuous_standardized", "D. SASHB and incident HF", "Per 1 SD; men only; 1 report / 2 cohorts", (582, 386, 1122, 724)),
+        ("HB__CVD_mortality__categorical_high_vs_low", "A. HB and CVD mortality", "High vs low; 1 report / 2 cohorts", (18, 14, 448, 304)),
+        ("HB__CVD_mortality__continuous_log", "B. HB and CVD mortality", "Continuous log-scale; 1 report / 2 cohorts", (472, 14, 902, 304)),
+        ("HB__all-cause_mortality__continuous_standardized", "C. HB and all-cause mortality", "Per 1 SD; 1 report / 2 cohorts", (18, 324, 448, 614)),
+        ("SASHB__incident_heart_failure__continuous_standardized", "D. SASHB and incident HF", "Per 1 SD; men only; 1 report / 2 cohorts", (472, 324, 902, 614)),
     ]
     for cell_id, title, subtitle, box in panel_specs:
         study_rows = read_tsv(PRIMARY_META / f"study_level_weights_{cell_id.replace('all-cause', 'all_cause')}.tsv")
