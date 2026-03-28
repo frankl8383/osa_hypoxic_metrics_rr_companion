@@ -39,8 +39,8 @@ Public repository URL:
 
 ## Final Dataset State Documented Here
 
-- historical executed package: `24` unique articles, `45` cohort-level rows, `33` primary rows, `12` sensitivity/comparator rows
-- updated final submission dataset: `31` unique articles, `54` cohort-level rows, `38` primary rows, `16` sensitivity/comparator rows
+- historical executed package: `24` unique articles, `45` cohort-level estimates, `33` primary estimates, `12` sensitivity/comparator estimates
+- updated final submission dataset: `31` unique articles, `54` cohort-level estimates, `38` primary estimates, `16` sensitivity/comparator estimates
 - primary pooled structure: unchanged `4` cells
 - final anchor-centered citation-chasing completeness pass: no further protocol-concordant retained study beyond the `31 / 54` dataset
 
@@ -56,7 +56,7 @@ Public repository URL:
 
 ## Reproduction Notes
 
-This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v40 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
+This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v41 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
 
 For most public-repository purposes, the key reusable materials are:
 

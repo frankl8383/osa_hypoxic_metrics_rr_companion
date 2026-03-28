@@ -1964,7 +1964,7 @@ def fulltext_exclusion_rows() -> list[dict[str, str]]:
             reason = "Community-based nocturnal saturation construct lay outside the prespecified OSA-related metric framework."
         elif decision in {"include_sensitivity"}:
             disposition = "Specialized/context/noncanonical comparator report"
-            reason = "Did not yield a prespecified retained row in the historical executed quantitative evidence set."
+            reason = "Did not yield a prespecified retained quantitative estimate in the historical executed evidence set."
         elif decision in {"include_narrative_only_nonextractable", "narrative_only"}:
             disposition = "Narrative-only or nonextractable report"
             reason = "No extractable protocol-concordant hard-outcome estimate for the historical executed quantitative evidence set."
@@ -1976,7 +1976,7 @@ def fulltext_exclusion_rows() -> list[dict[str, str]]:
             reason = "Outside the prespecified OSA-related prognostic scope."
         else:
             disposition = "Specialized/context/noncanonical comparator report"
-            reason = "Did not yield a prespecified retained row in the historical executed quantitative evidence set."
+            reason = "Did not yield a prespecified retained quantitative estimate in the historical executed evidence set."
         provisional_labels.append(
             {
                 "Report": report_label,
@@ -2221,7 +2221,7 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
         draw,
         scale_box((810, 1010, 1410, 1170), scale),
         "Retained from executed three-database package",
-        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows"],
+        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level estimates"],
         "#f6fffb",
         "#0f766e",
         box_title_font,
@@ -2234,7 +2234,7 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
         "Post-freeze supplement and re-adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
-            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} cohort-level rows added",
+            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} cohort-level estimates added",
             f"{counts['supplement_contextual_only']} contextual-only report reviewed; not quantitatively included",
         ],
         "#fff8e8",
@@ -2247,7 +2247,7 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
         draw,
         scale_box((1500, 980, 2100, 1200), scale),
         "Studies included in final quantitative evidence set",
-        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level rows in the final submission dataset"],
+        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level estimates in the final submission dataset"],
         "#f6fffb",
         "#0f766e",
         box_title_font,
@@ -2255,16 +2255,18 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
         scale=scale,
     )
     arrow_color = "#4b5563"
-    draw.line(scale_box((1100, 190, 1100, 234), scale), fill=arrow_color, width=px(5, scale))
-    draw_arrow(draw, scale_box((1100, 234, 700, 290), scale)[:2], scale_box((1100, 234, 700, 290), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
-    draw_arrow(draw, scale_box((1100, 234, 1160, 260), scale)[:2], scale_box((1100, 234, 1160, 260), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
-    draw_arrow(draw, scale_box((1160, 380, 1160, 490), scale)[:2], scale_box((1160, 380, 1160, 490), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
-    draw.line(scale_box((810, 320, 810, 550), scale), fill=arrow_color, width=px(5, scale))
-    draw_arrow(draw, scale_box((810, 550, 700, 550), scale)[:2], scale_box((810, 550, 700, 550), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw.line(scale_box((1100, 190, 1100, 220), scale), fill=arrow_color, width=px(5, scale))
+    draw.line(scale_box((410, 220, 1160, 220), scale), fill=arrow_color, width=px(5, scale))
+    draw_arrow(draw, scale_box((410, 220, 410, 230), scale)[:2], scale_box((410, 220, 410, 230), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw_arrow(draw, scale_box((1160, 220, 1160, 260), scale)[:2], scale_box((1160, 220, 1160, 260), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw.line(scale_box((1160, 380, 1160, 430), scale), fill=arrow_color, width=px(5, scale))
+    draw.line(scale_box((410, 430, 1160, 430), scale), fill=arrow_color, width=px(5, scale))
+    draw_arrow(draw, scale_box((410, 430, 410, 490), scale)[:2], scale_box((410, 430, 410, 490), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw_arrow(draw, scale_box((1160, 430, 1160, 490), scale)[:2], scale_box((1160, 430, 1160, 490), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1510, 550, 1580, 550), scale)[:2], scale_box((1510, 550, 1580, 550), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1160, 610, 1160, 710), scale)[:2], scale_box((1160, 610, 1160, 710), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw_arrow(draw, scale_box((1510, 770, 1520, 770), scale)[:2], scale_box((1510, 770, 1520, 770), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
-    draw_arrow(draw, scale_box((1160, 830, 1160, 1010), scale)[:2], scale_box((1160, 830, 1160, 1010), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
+    draw_arrow(draw, scale_box((1110, 830, 1110, 1010), scale)[:2], scale_box((1110, 830, 1110, 1010), scale)[2:], arrow_color, width=px(5, scale), scale=scale)
     draw.line(scale_box((700, 1140, 760, 1140), scale), fill=arrow_color, width=px(5, scale))
     draw.line(scale_box((760, 1140, 760, 1230), scale), fill=arrow_color, width=px(5, scale))
     draw.line(scale_box((760, 1230, 1440, 1230), scale), fill=arrow_color, width=px(5, scale))
@@ -2344,7 +2346,7 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
             f"{counts['fulltext_not_retained']} records",
             f"Narrative-only/nonextractable: {counts['narrative_or_nonextractable']}",
             f"Scope / intervention exclusions: {counts['scope_or_protocol_excluded']}",
-            f"Context-only / noncanonical rows: {counts['other_nonretained_context']}",
+            f"Context-only / noncanonical reports: {counts['other_nonretained_context']}",
         ],
     )
     add_box(
@@ -2353,7 +2355,7 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
         250,
         88,
         "Retained from executed three-database package",
-        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows"],
+        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level estimates"],
     )
     add_box(
         40,
@@ -2363,7 +2365,7 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
         "Post-freeze supplement and re-adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
-            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} rows added",
+            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} estimates added",
             f"{counts['supplement_contextual_only']} contextual-only report reviewed; not quantitatively included",
         ],
         cls="audit",
@@ -2374,16 +2376,17 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
         260,
         120,
         "Included in final quantitative evidence set",
-        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level rows in the final submission dataset"],
+        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level estimates in the final submission dataset"],
         cls="final",
     )
     lines.extend(
         [
-            '<path class="arrow" d="M480 140 L480 182"/>',
-            '<path class="arrow" d="M480 274 L480 332"/>',
-            '<path class="arrow" d="M420 274 L420 373 L300 373"/>',
-            '<path class="arrow" d="M540 274 L790 332"/>',
-            '<path class="arrow" d="M480 414 L480 500"/>',
+            '<path class="arrow" d="M480 140 L480 162 L180 162 L180 182"/>',
+            '<path class="arrow" d="M480 162 L480 182"/>',
+            '<path class="arrow" d="M480 274 L480 304 L180 304 L180 332"/>',
+            '<path class="arrow" d="M480 304 L480 332"/>',
+            '<path class="arrow" d="M600 373 L660 373"/>',
+            '<path class="arrow" d="M485 414 L485 500"/>',
             '<path class="arrow" d="M300 576 L332 576 L332 640 L642 640 L642 576 L680 576"/>',
             '<path class="arrow" d="M610 544 L680 544"/>',
             '</svg>',
@@ -2889,7 +2892,7 @@ def build_prisma_vector_eps(path: Path) -> None:
         canvas,
         (400, 574, 700, 660),
         "Retained from executed three-database package",
-        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level rows"],
+        [f"{counts['included_articles']} unique articles", f"{counts['historical_rows']} cohort-level estimates"],
         fill="#f6fffb",
         stroke="#0f766e",
         title_size=13,
@@ -2901,7 +2904,7 @@ def build_prisma_vector_eps(path: Path) -> None:
         "Post-freeze supplement and re-adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
-            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} rows added",
+            f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} estimates added",
             f"{counts['supplement_contextual_only']} contextual-only report reviewed; not quantitatively included",
         ],
         fill="#fff8e8",
@@ -2913,22 +2916,24 @@ def build_prisma_vector_eps(path: Path) -> None:
         canvas,
         (760, 560, 1085, 690),
         "Studies included in final quantitative evidence set",
-        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level rows in the final submission dataset"],
+        [f"{counts['updated_included_articles']} unique articles", f"{counts['updated_rows']} cohort-level estimates in the final submission dataset"],
         fill="#f6fffb",
         stroke="#0f766e",
         title_size=13,
         body_size=10,
     )
-    canvas.line(550, 116, 550, 137, color="#4b5563", width=2)
-    draw_arrow_vector(canvas, (550, 137), (350, 191))
-    draw_arrow_vector(canvas, (550, 137), (580, 168))
-    canvas.line(440, 241, 440, 336, color="#4b5563", width=2)
-    draw_arrow_vector(canvas, (440, 336), (318, 336))
-    draw_arrow_vector(canvas, (580, 241), (580, 300))
+    canvas.line(550, 116, 550, 146, color="#4b5563", width=2)
+    canvas.line(205, 146, 580, 146, color="#4b5563", width=2)
+    draw_arrow_vector(canvas, (205, 146), (205, 155))
+    draw_arrow_vector(canvas, (580, 146), (580, 168))
+    canvas.line(580, 241, 580, 270, color="#4b5563", width=2)
+    canvas.line(173, 270, 580, 270, color="#4b5563", width=2)
+    draw_arrow_vector(canvas, (173, 270), (173, 300))
+    draw_arrow_vector(canvas, (580, 270), (580, 300))
     draw_arrow_vector(canvas, (760, 336), (800, 336))
     draw_arrow_vector(canvas, (580, 373), (580, 442))
     draw_arrow_vector(canvas, (760, 486), (770, 486))
-    draw_arrow_vector(canvas, (580, 515), (550, 574))
+    draw_arrow_vector(canvas, (550, 515), (550, 574))
     canvas.line(340, 640, 378, 640, color="#4b5563", width=2)
     canvas.line(378, 640, 378, 700, color="#4b5563", width=2)
     canvas.line(378, 700, 718, 700, color="#4b5563", width=2)
@@ -3246,21 +3251,21 @@ def build_protocol_search_appendix(path: Path) -> None:
         - categorical contrasts were not pooled with continuous-scale analyses
         - materially different composite outcomes were not pooled by default
         - adjusted hazard ratios were prioritized
-        - when multiple rows from the same cohort family addressed the same metric-outcome cell, default row selection prioritized adjusted hazard ratios, prespecified core metric families over comparator constructs, primary published models over alternate incremental models, and the cleanest shared scale before alternate subgroup or threshold rows
+        - when multiple estimates from the same cohort family addressed the same metric-outcome cell, default estimate selection prioritized adjusted hazard ratios, prespecified core metric families over comparator constructs, primary published models over alternate incremental models, and the cleanest shared scale before alternate subgroup or threshold estimates
         - alternate scales or models from the same cohort family were retained as overlap-sensitive sensitivity evidence rather than merged into the default pooled cell
         - random-effects meta-analysis with restricted maximum likelihood was used only for directly comparable cells
         - post hoc scale harmonization was labeled exploratory
         - because every poolable cell contained fewer than 10 studies, funnel plots and small-study-effects testing were not performed
 
-        ## Default row-selection algorithm
+        ## Default estimate-selection algorithm
 
         | Priority step | Operational rule |
         | --- | --- |
-        | 1 | Prefer adjusted hazard ratios over unadjusted, logistic, or purely descriptive rows |
+        | 1 | Prefer adjusted hazard ratios over unadjusted, logistic, or purely descriptive estimates |
         | 2 | Prefer prespecified core metric families over comparator constructs from the same cohort family |
         | 3 | Prefer the primary published model over alternate incremental or subtype-adjusted models |
-        | 4 | Prefer the cleanest shared exposure scale before subgroup-only, threshold-only, or overlap-sensitive rows |
-        | 5 | Retain alternate rows from the same cohort family as sensitivity/comparator evidence rather than merge them into the primary pooled analyses |
+        | 4 | Prefer the cleanest shared exposure scale before subgroup-only, threshold-only, or overlap-sensitive estimates |
+        | 5 | Retain alternate estimates from the same cohort family as sensitivity/comparator evidence rather than merge them into the primary pooled analyses |
 
         ## Protocol deviations and late analytic clarifications
 
@@ -3275,7 +3280,7 @@ def build_protocol_search_appendix(path: Path) -> None:
         - PubMed main query identified: `{counts['pubmed_ids']}` records
         - PubMed records parsed into the screening corpus after export cleaning: `{counts['pubmed_screened']}` records
         - PubMed IDs not parsed into the screening corpus after export cleaning: `{counts['pubmed_not_parsed']}` records
-        - The 3 PubMed IDs not retained in the parsed screening corpus were removed during export cleaning because their saved export blocks did not normalize into complete screening rows.
+        - The 3 PubMed IDs not retained in the parsed screening corpus were removed during export cleaning because their saved export blocks did not normalize into complete screening records.
         - Web of Science Core Collection exported after document-type filtering: `{counts['wos_exported']}` records
         - Embase exported after source/publication-type filtering: `{counts['embase_exported']}` records
         - deduplicated title/abstract screening corpus across the three planned databases: `{counts['screened_total']}` records
@@ -3289,7 +3294,7 @@ def build_protocol_search_appendix(path: Path) -> None:
         - later re-adjudicated into the post-freeze supplement: `{counts['later_retained_postfreeze']}`
         - narrative-only or nonextractable reports: `{counts['narrative_or_nonextractable']}`
         - protocol-scope or intervention-effect-modifier exclusions: `{counts['scope_or_protocol_excluded']}`
-        - specialized/context/noncanonical comparator reports that did not yield a prespecified retained row: `{counts['other_nonretained_context']}`
+        - specialized/context/noncanonical comparator reports that did not yield a prespecified retained quantitative estimate: `{counts['other_nonretained_context']}`
 
         ## Re-review audit summary
 
@@ -3298,17 +3303,17 @@ def build_protocol_search_appendix(path: Path) -> None:
         | Included articles | `{counts['updated_included_articles']}` articles in the final submission dataset (`{counts['included_articles']}` historical + `{counts['upgrade_retained_articles']}` post-freeze upgrade articles) | The second author re-reviewed the retained studies before final submission export, with the post-freeze supplement adjudicated under the same extraction rules | The updated submission dataset was expanded without adding a new primary pooled cell |
         | Full-text non-retained reports | `{counts['fulltext_not_retained']}/{counts['fulltext_not_retained']}` reports | The second author re-reviewed all non-retained full-text decisions; disagreements were adjudicated by the corresponding author | Final non-retained classes were retained and summarized as final-state exclusion categories |
         | Primary pooled inputs | `4/4` pooled cells (`8` cohort-specific estimates) | All effect estimates contributing to the four primary pooled cells were re-checked before export | The four-cell primary pooled structure was retained without change |
-        | Non-pooled retained rows | `{counts['updated_nonpooled_rows']}/{counts['updated_nonpooled_rows']}` retained non-pooled rows | The second author re-reviewed all retained sensitivity/comparator and narrative-supporting rows against the extraction worksheet and article PDFs or abstracts | Row-level retention outside the primary pooled analyses was preserved while the post-freeze upgrade thickened the T90/TST90 and specialized-evidence layers |
+        | Non-pooled retained estimates | `{counts['updated_nonpooled_rows']}/{counts['updated_nonpooled_rows']}` retained non-pooled estimates | The second author re-reviewed all retained sensitivity/comparator and narrative-supporting estimates against the extraction worksheet and article PDFs or abstracts | Estimate-level retention outside the primary pooled analyses was preserved while the post-freeze upgrade thickened the T90/TST90 and specialized-evidence layers |
 
         ## Post-freeze evidence-upgrade supplement
 
         After the historical executed package was frozen, we performed a targeted post-freeze evidence-upgrade supplement focused on high-value full texts and open-access anchors identified during manuscript finalization. A final strict-review re-adjudication also rescued one previously screened dual-cohort T90 mortality paper into the updated dataset. This supplement is now integrated directly into the final-state Figure 1 accounting and was adjudicated using the same protocol-concordant extraction and retention rules.
 
         - targeted studies/open-access anchors reviewed: `{counts['supplement_reports_reviewed']}`
-        - retained into the updated submission dataset: `{counts['upgrade_retained_articles']}` studies contributing `{counts['upgrade_retained_rows']}` cohort-level rows
+        - retained into the updated submission dataset: `{counts['upgrade_retained_articles']}` studies contributing `{counts['upgrade_retained_rows']}` cohort-level estimates
         - contextual-only specialized paper reviewed but not included in the quantitative evidence set: `1` (`Pinilla 2023`, PMID `37734857`)
-        - updated final submission dataset: `{counts['updated_included_articles']}` unique articles, `{counts['updated_rows']}` cohort-level rows, `{counts['updated_primary_rows']}` primary retained rows, and `{counts['updated_sensitivity_rows']}` sensitivity/comparator rows
-        - Figure 1 now ends in the final-state dataset while preserving the executed-package subcount: `{counts['included_articles']}` unique articles and `{counts['historical_rows']}` cohort-level rows from the three-database package plus `{counts['upgrade_retained_articles']}` added studies from the integrated supplement
+        - updated final submission dataset: `{counts['updated_included_articles']}` unique articles, `{counts['updated_rows']}` cohort-level estimates, `{counts['updated_primary_rows']}` primary estimates, and `{counts['updated_sensitivity_rows']}` sensitivity/comparator estimates
+        - Figure 1 now ends in the final-state dataset while preserving the executed-package subcount: `{counts['included_articles']}` unique articles and `{counts['historical_rows']}` cohort-level estimates from the three-database package plus `{counts['upgrade_retained_articles']}` added studies from the integrated supplement
         - effect on the four primary pooled cells: `no new pooled cell was added and the four-cell primary pooled structure remained unchanged`
 
         ## Final anchor-centered citation-chasing completeness pass
@@ -3317,7 +3322,7 @@ def build_protocol_search_appendix(path: Path) -> None:
 
         - anchor set interrogated: `Azarbarzin 2019/2020`, `Labarca 2023`, `Blanchard 2021`, `Baumert 2020`, `Oldenburg 2016`, `Heinzinger 2023`, `Kendzerska 2018`, `Trzepizur 2022`, `Hui 2024`, `Vichova 2025`, `Mazzotti 2025`, plus the retained post-freeze upgrade studies
         - strongest rescued article already integrated: `Henríquez-Beltrán 2024` (PMID `37656346`)
-        - final result of this pass: `no additional protocol-concordant retained study or retained cohort-level row beyond the integrated 31-article / 54-row updated submission dataset`
+        - final result of this pass: `no additional protocol-concordant retained study or retained cohort-level estimate beyond the integrated 31-article / 54-estimate updated submission dataset`
         - effect on the four primary pooled cells: `no new independent publication-level replication was identified for HB -> cardiovascular mortality, HB -> all-cause mortality, or SASHB -> incident heart failure`
         - highest-value screened but non-retained candidates confirmed during this pass:
           - `Xu 2026` (PMID `41794120`): composite high-CVD-risk OSA phenotype based on high HB or high ΔHR rather than a separable prespecified metric-family estimate
@@ -3335,7 +3340,7 @@ def build_protocol_search_appendix(path: Path) -> None:
         - medium-priority audit records: `{counts['side_medium']}`
         - low-priority audit records: `{counts['side_low']}`
         - likely exclusions on first-pass triage: `{counts['side_likely_exclude']}`
-        - final impact on retained articles or retained cohort-level rows: `no article or retained row in the final quantitative evidence set depended exclusively on the side-search stream`
+        - final impact on retained articles or retained cohort-level estimates: `no article or retained estimate in the final quantitative evidence set depended exclusively on the side-search stream`
         - effect on the primary pooled analyses: `no new primary pooled cell added`
         """
     )
@@ -3430,7 +3435,7 @@ def build_protocol_search_appendix(path: Path) -> None:
         - Deduplication was performed sequentially against the closed corpus using PMID, DOI, and normalized title matching, followed by manual review of residual ambiguous records.
         - The final quantitative evidence set was built at the cohort-row level rather than the article level.
         - Alternate models or scales from the same cohort family were retained as overlap-sensitive sensitivity evidence rather than merged into the primary pooled analyses.
-        - Narrative-only and noncanonical comparator records were tracked separately from prespecified metric-family rows.
+        - Narrative-only and noncanonical comparator records were tracked separately from prespecified metric-family estimates.
         """
     )
     text = "\n\n".join([protocol_outline, exclusion_log, pubmed_query, side_search_queries, wos_query, embase_query, dedup_notes])
@@ -3455,7 +3460,7 @@ def build_submission_manuscript_markdown() -> str:
     table_blocks = [
         markdown_table_block(
             "Table 1. Cohort map of included articles",
-            "Table 1 summarizes retained articles by cohort class, main metric family, outcome anchor, analytic sample size, evidence layer, and overall risk of bias. For multi-cohort articles, cohort-specific sample sizes are shown with cohort-labeled semicolon-separated entries within the same cell; slash-separated values within a cohort label indicate multiple retained rows from the same cohort family.",
+            "Table 1 summarizes retained articles by cohort class, main metric family, outcome anchor, analytic sample size, evidence layer, and overall risk of bias. For multi-cohort articles, cohort-specific sample sizes are shown with cohort-labeled semicolon-separated entries within the same cell; slash-separated values within a cohort label indicate multiple retained estimates from the same cohort family.",
             build_main_table1(),
             heading="",
         ),
@@ -3483,7 +3488,7 @@ def export_tables() -> None:
         (
             "Table_1_study_characteristics",
             "Table 1. Cohort map of included articles",
-            "Table 1 summarizes retained articles by cohort class, main metric family, outcome anchor, analytic sample size, evidence layer, and overall risk of bias. For multi-cohort articles, cohort-specific sample sizes are shown with cohort-labeled semicolon-separated entries within the same cell; slash-separated values within a cohort label indicate multiple retained rows from the same cohort family.",
+            "Table 1 summarizes retained articles by cohort class, main metric family, outcome anchor, analytic sample size, evidence layer, and overall risk of bias. For multi-cohort articles, cohort-specific sample sizes are shown with cohort-labeled semicolon-separated entries within the same cell; slash-separated values within a cohort label indicate multiple retained estimates from the same cohort family.",
             build_main_table1(),
         ),
         (
