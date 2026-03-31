@@ -4,11 +4,11 @@ This appendix reports the final protocol rules, the exact executed search string
 
 ## Review question and registration status
 
-- Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis`
+- Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review with limited quantitative synthesis`
 - Reporting framework: `PRISMA 2020`
 - Additional reporting cross-check: `MOOSE-relevant items for observational meta-analyses`
 - Registration: protocol outline prepared in a `PROSPERO`-compatible format but not formally registered
-- Protocol freeze date: `2026-03-23` before full-text eligibility assessment and before the final pooled synthesis
+- Protocol freeze date: `2026-03-23` before full-text eligibility assessment and before the final limited quantitative synthesis
 - Core review question: in adult OSA-related cohorts, which beyond-AHI hypoxic metrics show the strongest and most defensible associations with hard cardiovascular or mortality outcomes?
 
 ## Final eligibility framework

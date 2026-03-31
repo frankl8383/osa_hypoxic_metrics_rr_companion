@@ -2,7 +2,7 @@
 
 This repository is a public transparency package for the manuscript:
 
-`Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis`
+`Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review with limited quantitative synthesis`
 
 It is designed for a `GitHub + Zenodo` release path and is deliberately limited to reproducibility materials that can be shared without redistributing copyrighted full-text PDFs.
 
@@ -41,8 +41,8 @@ Public repository URL:
 
 - historical executed package: `24` unique articles, `45` cohort-level estimates, `33` primary estimates, `12` sensitivity/comparator estimates
 - updated final submission dataset: `31` unique articles, `54` cohort-level estimates, `38` primary estimates, `16` sensitivity/comparator estimates
-- primary pooled structure: unchanged `4` cells
-- final anchor-centered citation-chasing completeness pass: no further protocol-concordant retained study beyond the `31 / 54` dataset
+- directly synthesis-ready quantitative core: unchanged `4` cells, each still limited to two cohort-specific estimates from a single publication
+- final completeness checks: no further protocol-concordant retained study beyond the `31 / 54` dataset
 
 ## Repository Layout
 
@@ -56,7 +56,7 @@ Public repository URL:
 
 ## Reproduction Notes
 
-This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v43 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
+This repository is primarily a transparency deposit, not a full standalone workspace clone. The included script is the final export script used in the v44 submission package, but exact regeneration of all submission assets also depends on the broader `osa_meta_20260323` workspace layout and optional desktop tools such as `LibreOffice`, `pandoc`, and `Ghostscript`.
 
 For most public-repository purposes, the key reusable materials are:
 

@@ -2987,6 +2987,56 @@ def build_single_vector_eps(path: Path, analysis_id: str, title: str, subtitle: 
     canvas.save_eps(path)
 
 
+def build_evidence_map_vector_eps(path: Path) -> None:
+    rows = build_table4()
+    width = 980
+    height = 620
+    canvas = PSCanvas(width, height)
+    canvas.rect(0, 0, width, height, fill="#ffffff")
+    canvas.text(24, 26, "Evidence-map summary outside the four primary pooled cells", size=17, bold=True, color="#10243c")
+    canvas.text(24, 48, "Current barriers to direct quantitative synthesis by metric-outcome family", size=10, color="#4b5563")
+
+    header_font = load_font(11, bold=True)
+    metric_font = load_font(10, bold=True)
+    body_font = load_font(10, bold=False)
+
+    col_specs = [
+        ("Metric-outcome family", 24, 212),
+        ("Main barrier", 250, 226),
+        ("Evidence summary", 488, 468),
+    ]
+    header_y = 72
+    header_h = 34
+    for label, x, w in col_specs:
+        canvas.rect(x, header_y, w, header_h, fill="#eaf2ff", stroke="#94a3b8", stroke_width=1.0)
+        canvas.text(x + 10, header_y + 12, label, size=11, bold=True, color="#10243c")
+
+    row_y = 116
+    fills = ["#f8fbff", "#fbfdff"]
+    for idx, row in enumerate(rows):
+        metric = row["Metric-outcome family"]
+        barrier = row["Barrier"]
+        summary = row["Evidence summary"]
+        metric_h = wrapped_block_height(_MEASURE_DRAW, metric, metric_font, 194, line_gap=2)
+        barrier_h = wrapped_block_height(_MEASURE_DRAW, barrier, body_font, 206, line_gap=2)
+        summary_h = wrapped_block_height(_MEASURE_DRAW, summary, body_font, 448, line_gap=2)
+        row_h = max(58, max(metric_h, barrier_h, summary_h) + 18)
+        fill = fills[idx % len(fills)]
+        metric_fill = "#eef6ff" if idx % 2 == 0 else "#f3f8ff"
+
+        canvas.rect(24, row_y, 212, row_h, fill=metric_fill, stroke="#cbd5e1", stroke_width=0.8)
+        canvas.rect(250, row_y, 226, row_h, fill=fill, stroke="#cbd5e1", stroke_width=0.8)
+        canvas.rect(488, row_y, 468, row_h, fill=fill, stroke="#cbd5e1", stroke_width=0.8)
+
+        canvas.wrapped_text(34, row_y + 10, metric, font=metric_font, size=10, max_width=194, color="#10243c", bold=True, line_gap=2)
+        canvas.wrapped_text(260, row_y + 10, barrier, font=body_font, size=10, max_width=206, color="#1f2937", line_gap=2)
+        canvas.wrapped_text(498, row_y + 10, summary, font=body_font, size=10, max_width=448, color="#1f2937", line_gap=2)
+        row_y += row_h + 8
+
+    canvas.text(24, height - 20, "Underlying compact barrier matrix is provided in Additional file 8.", size=9, color="#4b5563")
+    canvas.save_eps(path)
+
+
 def write_primary_composite_svg(path: Path) -> None:
     meta_rows = {row["analysis_cell_id"]: row for row in read_tsv(PRIMARY_META / "meta_summary.tsv")}
     panel_specs = [
@@ -3228,11 +3278,11 @@ def build_protocol_search_appendix(path: Path) -> None:
 
         ## Review question and registration status
 
-        - Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis`
+        - Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review with limited quantitative synthesis`
         - Reporting framework: `PRISMA 2020`
         - Additional reporting cross-check: `MOOSE-relevant items for observational meta-analyses`
         - Registration: protocol outline prepared in a `PROSPERO`-compatible format but not formally registered
-        - Protocol freeze date: `2026-03-23` before full-text eligibility assessment and before the final pooled synthesis
+        - Protocol freeze date: `2026-03-23` before full-text eligibility assessment and before the final limited quantitative synthesis
         - Core review question: in adult OSA-related cohorts, which beyond-AHI hypoxic metrics show the strongest and most defensible associations with hard cardiovascular or mortality outcomes?
 
         ## Final eligibility framework
@@ -3605,7 +3655,7 @@ def export_tables() -> None:
     write_markdown_table(
         af8_md,
         "Additional file 8. Non-pooled barriers summary",
-        "Compact metric-outcome barrier matrix summarizing the main reasons non-pooled evidence remained outside synthesis-ready quantitative pooling.",
+        "Compact metric-outcome barrier matrix underlying the main-text Figure 3 evidence map.",
         build_table4(),
     )
     run_pandoc(af8_md, af8_docx)
@@ -3635,17 +3685,24 @@ def export_primary_figure_panels() -> None:
     render_eps_to_outputs(fig2_eps, fig2_pdf, fig2_png)
     fig2_eps.unlink(missing_ok=True)
 
-    fig3_pdf = UPLOAD_FIGURES / "Figure_3_T90_AF_harmonized.pdf"
-    fig3_png = UPLOAD_FIGURES / "Figure_3_T90_AF_harmonized.png"
-    fig3_eps = UPLOAD_FIGURES / "_Figure_3_T90_AF_harmonized.eps"
-    build_single_vector_eps(
-        fig3_eps,
-        "T90__incident_atrial_fibrillation__per10pct_harmonized_ci_based",
-        "T90 and incident AF",
-        "Exploratory sensitivity only; harmonized to per 10-percentage-point increase",
-    )
+    fig3_pdf = UPLOAD_FIGURES / "Figure_3_evidence_map.pdf"
+    fig3_png = UPLOAD_FIGURES / "Figure_3_evidence_map.png"
+    fig3_eps = UPLOAD_FIGURES / "_Figure_3_evidence_map.eps"
+    build_evidence_map_vector_eps(fig3_eps)
     render_eps_to_outputs(fig3_eps, fig3_pdf, fig3_png)
     fig3_eps.unlink(missing_ok=True)
+
+    harm_pdf = UPLOAD_SUPP / "Additional_file_9_T90_AF_harmonized_figure.pdf"
+    harm_png = UPLOAD_SUPP / "Additional_file_9_T90_AF_harmonized_figure.png"
+    harm_eps = UPLOAD_SUPP / "_Additional_file_9_T90_AF_harmonized_figure.eps"
+    build_single_vector_eps(
+        harm_eps,
+        "T90__incident_atrial_fibrillation__per10pct_harmonized_ci_based",
+        "T90 and incident AF",
+        "Exploratory harmonized sensitivity; per 10-percentage-point increase",
+    )
+    render_eps_to_outputs(harm_eps, harm_pdf, harm_png)
+    harm_eps.unlink(missing_ok=True)
 
     supp_pdf = UPLOAD_SUPP / "Additional_file_4_AF_precision_check_figure.pdf"
     supp_png = UPLOAD_SUPP / "Additional_file_4_AF_precision_check_figure.png"

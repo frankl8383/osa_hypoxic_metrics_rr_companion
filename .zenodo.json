@@ -2,7 +2,7 @@
   "title": "Transparency and reproducibility package for: Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts",
   "upload_type": "dataset",
   "license": "cc-by-4.0",
-  "description": "Repository-ready transparency package containing the final executed search appendix, screening and full-text review logs, extraction and synthesis tables, risk-of-bias source file, final export script, and final upload-ready figure files supporting the OSA beyond-AHI hypoxic-metrics systematic review and meta-analysis. This metadata snapshot corresponds to the public companion repository archived at Zenodo DOI 10.5281/zenodo.19228372.",
+  "description": "Repository-ready transparency package containing the final executed search appendix, screening and full-text review logs, extraction and synthesis tables, risk-of-bias source file, final export script, and final upload-ready figure files supporting the OSA beyond-AHI hypoxic-metrics systematic review with limited quantitative synthesis. This metadata snapshot corresponds to the public companion repository archived at Zenodo DOI 10.5281/zenodo.19228372.",
   "creators": [
     {
       "name": "Liu, Zihao",
@@ -24,7 +24,7 @@
     "oxygen desaturation index",
     "cardiovascular mortality",
     "systematic review",
-    "meta-analysis"
+    "limited quantitative synthesis"
   ],
-  "notes": "Local metadata snapshot synchronized on 2026-03-26. The repository package uses CC BY 4.0. If a future GitHub release is archived to Zenodo, update this metadata deliberately rather than leaving placeholder text."
+  "notes": "Local metadata snapshot synchronized on 2026-03-31. The repository package uses CC BY 4.0. If a future GitHub release is archived to Zenodo, update this metadata deliberately rather than leaving placeholder text."
 }

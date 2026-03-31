@@ -1,5 +1,5 @@
 # Executed search strategies for:
-# Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis
+# Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review with limited quantitative synthesis
 
 ## Suggested title
 
@@ -13,7 +13,7 @@ Executed search strategies for beyond-AHI hypoxic metrics and hard cardiovascula
 
 ## Suggested abstract
 
-We deposited the executed search strategies supporting a systematic review and meta-analysis of beyond-AHI hypoxic metrics and hard cardiovascular or mortality outcomes in adult OSA-related cohorts. The primary three-database search covered PubMed, Web of Science Core Collection, and Embase, with protocol-concordant supplementary metric-specific PubMed side-searches used only as a recall audit after closure of the main PubMed corpus. Prespecified exposure families were hypoxic burden, sleep-apnea-specific hypoxic burden, T90/TST90, oxygen desaturation index, and minimum or nadir oxygen saturation. Prespecified outcomes were all-cause mortality, cardiovascular mortality, incident or adjudicated cardiovascular events, incident heart failure, incident atrial fibrillation, and incident stroke. This record preserves the exact executed database logic, filters, and search dates used for the submitted review package.
+We deposited the executed search strategies supporting a systematic review with limited quantitative synthesis of beyond-AHI hypoxic metrics and hard cardiovascular or mortality outcomes in adult OSA-related cohorts. The primary three-database search covered PubMed, Web of Science Core Collection, and Embase, with protocol-concordant supplementary metric-specific PubMed side-searches used only as a recall audit after closure of the main PubMed corpus. Prespecified exposure families were hypoxic burden, sleep-apnea-specific hypoxic burden, T90/TST90, oxygen desaturation index, and minimum or nadir oxygen saturation. Prespecified outcomes were all-cause mortality, cardiovascular mortality, incident or adjudicated cardiovascular events, incident heart failure, incident atrial fibrillation, and incident stroke. This record preserves the exact executed database logic, filters, and search dates used for the submitted review package.
 
 ## Suggested keywords
 
@@ -23,11 +23,11 @@ We deposited the executed search strategies supporting a systematic review and m
 - oxygen desaturation index
 - cardiovascular mortality
 - systematic review
-- meta-analysis
+- limited quantitative synthesis
 
 ## Review context
 
-- Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review and meta-analysis`
+- Working review title: `Beyond-AHI hypoxic metrics and hard cardiovascular and mortality outcomes in adult OSA-related cohorts: a systematic review with limited quantitative synthesis`
 - Reporting framework: `PRISMA 2020`
 - Registration: protocol outline prepared in a PROSPERO-compatible format but not formally registered
 - Protocol freeze date: `2026-03-23`
@@ -113,7 +113,7 @@ Post-retrieval filters:
 - reports sought for retrieval after title/abstract screening: `62`
 - full-text reports assessed for eligibility: `62`
 - historical executed quantitative evidence set: `24` unique articles
-- updated final submission dataset after post-freeze supplement and citation-chasing pass: `31` unique articles and `54` cohort-level rows
+- updated final submission dataset after targeted update adjudication and completeness checks: `31` unique articles and `54` cohort-level estimates
 
 ## Recommended linkage
 
