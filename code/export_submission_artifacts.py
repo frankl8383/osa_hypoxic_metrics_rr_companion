@@ -2231,7 +2231,7 @@ def make_prisma_figure(counts: dict[str, int]) -> Image.Image:
     draw_box_with_text(
         draw,
         scale_box((120, 980, 700, 1200), scale),
-        "Post-freeze supplement and re-adjudication",
+        "Targeted update adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
             f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} cohort-level estimates added",
@@ -2362,7 +2362,7 @@ def write_prisma_svg(path: Path, counts: dict[str, int]) -> None:
         500,
         260,
         120,
-        "Post-freeze supplement and re-adjudication",
+        "Targeted update adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
             f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} estimates added",
@@ -2901,7 +2901,7 @@ def build_prisma_vector_eps(path: Path) -> None:
     draw_box_with_text_vector(
         canvas,
         (20, 515, 285, 635),
-        "Post-freeze supplement and re-adjudication",
+        "Targeted update adjudication",
         [
             f"{counts['supplement_reports_reviewed']} targeted reports assessed",
             f"{counts['upgrade_retained_articles']} studies retained; {counts['upgrade_retained_rows']} estimates added",
